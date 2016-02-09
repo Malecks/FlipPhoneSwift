@@ -66,6 +66,9 @@ class ViewController: UIViewController {
         if model.didSpin((motion.deviceMotion?.attitude)!) {
             spinsLabel.text = "\(model.yawCount)"
         }
+        if model.didFlip((motion.deviceMotion?.attitude)!) {
+            flipsLabel.text = "\(model.pitchCount)"
+        }
     }
     
     // MARK: Handlers

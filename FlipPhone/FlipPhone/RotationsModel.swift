@@ -78,7 +78,30 @@ class RotationsModel: NSObject {
             yawStep1 = false
             yawStep2 = false
             yawStep3 = false
-            print("Yaw Count: \(yawCount)")
+            print("Spin Count: \(yawCount)")
+            return true
+        } else {
+            return false
+        }
+    }
+    
+    // calc flips
+    func didFlip (attitude: CMAttitude) -> Bool {
+        if attitude.pitch < 0 && attitude.pitch > -0.75 {
+            pitchStep1 = true
+        }
+        if pitchStep1 && attitude.yaw < -0.75 && attitude.yaw > -1.25 {
+            pitchStep2 = true
+        }
+        if self.pitchStep2 && attitude.yaw > 0.75 {
+            self.pitchStep3 = true;
+        }
+        if pitchStep1 && pitchStep2 && pitchStep3 {
+            pitchCount += 1
+            pitchStep1 = false
+            pitchStep2 = false
+            pitchStep3 = false
+            print("Flip Count: \(pitchCount)")
             return true
         } else {
             return false
