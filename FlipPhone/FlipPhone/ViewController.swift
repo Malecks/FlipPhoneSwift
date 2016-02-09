@@ -20,6 +20,8 @@ class ViewController: UIViewController {
     @IBOutlet var scoreLabel: UILabel!
     
     var flipModeScore = 0
+    var flipModeRunning: Bool = false
+    var startTime : CFAbsoluteTime!
     
     // MARK: View
     override func viewWillAppear(animated: Bool) {
@@ -64,7 +66,7 @@ class ViewController: UIViewController {
     }
     
     func updateMotion() {
-        if motion.deviceMotion == nil {
+        if motion.deviceMotion == nil || flipModeRunning == false {
             return
         }
         if model.didRoll((motion.deviceMotion?.attitude)!) {
@@ -78,6 +80,9 @@ class ViewController: UIViewController {
         }
         calculateScore()
         scoreLabel.text = "\(flipModeScore)"
+        
+        let remainingTime = round((3.0 - (CFAbsoluteTimeGetCurrent() - startTime)) * 10) / 10
+        print("\(remainingTime)")
     }
     
     func calculateScore() {
@@ -95,4 +100,23 @@ class ViewController: UIViewController {
         calculateScore()
         scoreLabel.text = "\(flipModeScore)"
     }
+    
+    @IBAction func startButton(sender: UIButton) {
+        // start 3 second timer
+        NSTimer.scheduledTimerWithTimeInterval(3.0, target: self, selector: "startStopFlipMode", userInfo: nil, repeats: false)
+        startStopFlipMode()
+        startTime = CFAbsoluteTimeGetCurrent()
+    }
+    
+    func startStopFlipMode () {
+        flipModeRunning = !flipModeRunning
+    }
 }
+
+
+
+
+
+
+
+
