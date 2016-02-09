@@ -14,6 +14,7 @@
 		9235789E1C6945AD00760BB9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9235789C1C6945AD00760BB9 /* LaunchScreen.storyboard */; };
 		923578A61C694C4700760BB9 /* RotationsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923578A51C694C4700760BB9 /* RotationsModel.swift */; };
 		923578A81C69544E00760BB9 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 923578A71C69544E00760BB9 /* icon.png */; };
+		923578AA1C6A506300760BB9 /* LaunchModeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923578A91C6A506300760BB9 /* LaunchModeViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		9235789F1C6945AD00760BB9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		923578A51C694C4700760BB9 /* RotationsModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RotationsModel.swift; sourceTree = "<group>"; };
 		923578A71C69544E00760BB9 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
+		923578A91C6A506300760BB9 /* LaunchModeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LaunchModeViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +63,7 @@
 			children = (
 				923578931C6945AD00760BB9 /* AppDelegate.swift */,
 				923578951C6945AD00760BB9 /* ViewController.swift */,
+				923578A91C6A506300760BB9 /* LaunchModeViewController.swift */,
 				923578A51C694C4700760BB9 /* RotationsModel.swift */,
 				923578971C6945AD00760BB9 /* Main.storyboard */,
 				9235789A1C6945AD00760BB9 /* Assets.xcassets */,
@@ -143,6 +146,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				923578AA1C6A506300760BB9 /* LaunchModeViewController.swift in Sources */,
 				923578961C6945AD00760BB9 /* ViewController.swift in Sources */,
 				923578941C6945AD00760BB9 /* AppDelegate.swift in Sources */,
 				923578A61C694C4700760BB9 /* RotationsModel.swift in Sources */,
@@ -293,6 +297,7 @@
 				923578A41C6945AD00760BB9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

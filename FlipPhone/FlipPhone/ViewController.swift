@@ -17,13 +17,19 @@ class ViewController: UIViewController {
     @IBOutlet var spinsLabel: UILabel!
     @IBOutlet var flipsLabel: UILabel!
     @IBOutlet var rollsLabel: UILabel!
+    @IBOutlet var scoreLabel: UILabel!
     
+    var flipModeScore = 0
     
     // MARK: View
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        prepareCoreMotion()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         prepareLabels()
-        prepareCoreMotion()
         startTimer()
     }
     
@@ -42,6 +48,7 @@ class ViewController: UIViewController {
         rollsLabel.text = "\(model.rollCount)"
         spinsLabel.text = "\(model.yawCount)"
         flipsLabel.text = "\(model.pitchCount)"
+        scoreLabel.text = "\(flipModeScore)"
     }
     
     func prepareCoreMotion() {
@@ -69,6 +76,12 @@ class ViewController: UIViewController {
         if model.didFlip((motion.deviceMotion?.attitude)!) {
             flipsLabel.text = "\(model.pitchCount)"
         }
+        calculateScore()
+        scoreLabel.text = "\(flipModeScore)"
+    }
+    
+    func calculateScore() {
+        flipModeScore = ((model.rollCount * 10) + (model.yawCount * 35) + (model.pitchCount * 50))
     }
     
     // MARK: Handlers
@@ -79,5 +92,7 @@ class ViewController: UIViewController {
         rollsLabel.text = "\(model.rollCount)"
         flipsLabel.text = "\(model.pitchCount)"
         spinsLabel.text = "\(model.yawCount)"
+        calculateScore()
+        scoreLabel.text = "\(flipModeScore)"
     }
 }
