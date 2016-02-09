@@ -60,14 +60,10 @@ class ViewController: UIViewController {
         if motion.deviceMotion == nil {
             return
         }
-        let results = model.calculateRotations((motion.deviceMotion?.attitude)!)
-        if results.roll {
+        if model.didRoll((motion.deviceMotion?.attitude)!) {
             rollsLabel.text = "\(model.rollCount)"
         }
-        if results.flip {
-            flipsLabel.text = "\(model.pitchCount)"
-        }
-        if results.spin {
+        if model.didSpin((motion.deviceMotion?.attitude)!) {
             spinsLabel.text = "\(model.yawCount)"
         }
     }
