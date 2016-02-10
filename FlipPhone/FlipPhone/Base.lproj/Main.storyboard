@@ -90,10 +90,10 @@
                                 <state key="normal" title="START">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="startButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="8SU-gc-eHi"/>
+                                </connections>
                             </button>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kQG-Nu-xHl">
-                                <rect key="frame" x="139" y="416" width="100" height="100"/>
-                            </view>
                         </subviews>
                         <color key="backgroundColor" red="0.086274509799999996" green="0.45098039220000002" blue="0.88235294119999996" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
@@ -124,7 +124,6 @@
                         <outlet property="rollsLabel" destination="NSt-g3-1gG" id="Cau-cH-tAl"/>
                         <outlet property="scoreLabel" destination="wGO-Sf-5c9" id="eXW-Wk-lki"/>
                         <outlet property="spinsLabel" destination="jh0-Mo-RwX" id="CsA-El-aGf"/>
-                        <outlet property="startButton" destination="afw-e6-7FZ" id="vXn-ej-AiF"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

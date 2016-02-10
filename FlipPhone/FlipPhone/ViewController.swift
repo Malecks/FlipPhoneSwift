@@ -20,8 +20,9 @@ class ViewController: UIViewController {
     @IBOutlet var scoreLabel: UILabel!
     
     var flipModeScore = 0
-    var flipModeRunning: Bool = false
-    var startTime : CFAbsoluteTime!
+    var didStartThrow: Bool = false
+//    var flipModeRunning: Bool = false
+//    var startTime : CFAbsoluteTime!
     
     // MARK: View
     override func viewWillAppear(animated: Bool) {
@@ -57,16 +58,21 @@ class ViewController: UIViewController {
         if motion.deviceMotionAvailable {
             motion.deviceMotionUpdateInterval = 0.01
             motion.startDeviceMotionUpdatesUsingReferenceFrame(CMAttitudeReferenceFrame.XArbitraryZVertical)
+            motion.accelerometerUpdateInterval = 0.01
+            motion.startAccelerometerUpdates()
         }
     }
     
     // MARK: Timer and related functions
     func startTimer() {
         NSTimer.scheduledTimerWithTimeInterval(0.01, target: self, selector: Selector("updateMotion"), userInfo: nil, repeats: true)
+        NSTimer.scheduledTimerWithTimeInterval(0.01, target: self, selector: Selector("updateAcceleration"), userInfo: nil, repeats: true)
+
     }
     
     func updateMotion() {
-        if motion.deviceMotion == nil || flipModeRunning == false {
+        if motion.deviceMotion == nil// || flipModeRunning == false 
+        {
             return
         }
         if model.didRoll((motion.deviceMotion?.attitude)!) {
@@ -80,9 +86,26 @@ class ViewController: UIViewController {
         }
         calculateScore()
         scoreLabel.text = "\(flipModeScore)"
+       
+//        let remainingTime = round((3.0 - (CFAbsoluteTimeGetCurrent() - startTime)) * 10) / 10
+//        print("\(remainingTime)")
+    }
+    
+    func updateAcceleration() {
+//        print("xyz:\(motion.accelerometerData?.acceleration.y, motion.accelerometerData?.acceleration.x, motion.accelerometerData?.acceleration.z)")
+        let aX = motion.accelerometerData?.acceleration.x
+        let aY = motion.accelerometerData?.acceleration.y
+        let aZ = motion.accelerometerData?.acceleration.z
+        let totalAcceleration = sqrt((aX! * aX!) + (aY! * aY!) + (aZ! * aZ!))
         
-        let remainingTime = round((3.0 - (CFAbsoluteTimeGetCurrent() - startTime)) * 10) / 10
-        print("\(remainingTime)")
+        if totalAcceleration > 4 {
+            didStartThrow = true
+            print("throwing!")
+        }
+        if didStartThrow && totalAcceleration < 1 {
+            didStartThrow = false
+            print("stopped throw")
+        }
     }
     
     func calculateScore() {
@@ -102,14 +125,14 @@ class ViewController: UIViewController {
     }
     
     @IBAction func startButton(sender: UIButton) {
-        // start 3 second timer
-        NSTimer.scheduledTimerWithTimeInterval(3.0, target: self, selector: "startStopFlipMode", userInfo: nil, repeats: false)
-        startStopFlipMode()
-        startTime = CFAbsoluteTimeGetCurrent()
+//        // start 3 second timer
+//        NSTimer.scheduledTimerWithTimeInterval(3.0, target: self, selector: "startStopFlipMode", userInfo: nil, repeats: false)
+//        startStopFlipMode()
+//        startTime = CFAbsoluteTimeGetCurrent()
     }
     
     func startStopFlipMode () {
-        flipModeRunning = !flipModeRunning
+//        flipModeRunning = !flipModeRunning
     }
 }
 
