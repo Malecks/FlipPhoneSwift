@@ -14,15 +14,14 @@ class ViewController: UIViewController {
     let motion = CMMotionManager()
     let model = RotationsModel()
     
+    var flipModeScore = 0
+    var didStartThrow: Bool = false
+    var flipModeRunning: Bool = false
+    
     @IBOutlet var spinsLabel: UILabel!
     @IBOutlet var flipsLabel: UILabel!
     @IBOutlet var rollsLabel: UILabel!
     @IBOutlet var scoreLabel: UILabel!
-    
-    var flipModeScore = 0
-    var didStartThrow: Bool = false
-//    var flipModeRunning: Bool = false
-//    var startTime : CFAbsoluteTime!
     
     // MARK: View
     override func viewWillAppear(animated: Bool) {
@@ -58,6 +57,8 @@ class ViewController: UIViewController {
         if motion.deviceMotionAvailable {
             motion.deviceMotionUpdateInterval = 0.01
             motion.startDeviceMotionUpdatesUsingReferenceFrame(CMAttitudeReferenceFrame.XArbitraryZVertical)
+            
+            // not sure if necessary on top of motion updates
             motion.accelerometerUpdateInterval = 0.01
             motion.startAccelerometerUpdates()
         }
@@ -67,32 +68,30 @@ class ViewController: UIViewController {
     func startTimer() {
         NSTimer.scheduledTimerWithTimeInterval(0.01, target: self, selector: Selector("updateMotion"), userInfo: nil, repeats: true)
         NSTimer.scheduledTimerWithTimeInterval(0.01, target: self, selector: Selector("updateAcceleration"), userInfo: nil, repeats: true)
-
     }
     
     func updateMotion() {
-        if motion.deviceMotion == nil// || flipModeRunning == false 
+        if motion.deviceMotion == nil // || flipModeRunning == false
         {
             return
         }
-        if model.didRoll((motion.deviceMotion?.attitude)!) {
-            rollsLabel.text = "\(model.rollCount)"
-        }
-        if model.didSpin((motion.deviceMotion?.attitude)!) {
-            spinsLabel.text = "\(model.yawCount)"
-        }
-        if model.didFlip((motion.deviceMotion?.attitude)!) {
-            flipsLabel.text = "\(model.pitchCount)"
-        }
-        calculateScore()
-        scoreLabel.text = "\(flipModeScore)"
-       
-//        let remainingTime = round((3.0 - (CFAbsoluteTimeGetCurrent() - startTime)) * 10) / 10
-//        print("\(remainingTime)")
+        //        if model.didRoll((motion.deviceMotion?.attitude)!) {
+        //            rollsLabel.text = "\(model.rollCount)"
+        //        }
+        //        if model.didSpin((motion.deviceMotion?.attitude)!) {
+        //            spinsLabel.text = "\(model.yawCount)"
+        //        }
+        //        if model.didFlip((motion.deviceMotion?.attitude)!) {
+        //            flipsLabel.text = "\(model.pitchCount)"
+        //        }
+        model.didRoll((motion.deviceMotion?.attitude)!)
+        model.didSpin((motion.deviceMotion?.attitude)!)
+        model.didFlip((motion.deviceMotion?.attitude)!)
+        
     }
     
     func updateAcceleration() {
-//        print("xyz:\(motion.accelerometerData?.acceleration.y, motion.accelerometerData?.acceleration.x, motion.accelerometerData?.acceleration.z)")
+        //        print("xyz:\(motion.accelerometerData?.acceleration.y, motion.accelerometerData?.acceleration.x, motion.accelerometerData?.acceleration.z)")
         let aX = motion.accelerometerData?.acceleration.x
         let aY = motion.accelerometerData?.acceleration.y
         let aZ = motion.accelerometerData?.acceleration.z
@@ -100,16 +99,33 @@ class ViewController: UIViewController {
         
         if totalAcceleration > 4 {
             didStartThrow = true
+            flipModeRunning = true
             print("throwing!")
         }
         if didStartThrow && totalAcceleration < 1 {
             didStartThrow = false
+            flipModeRunning = false
             print("stopped throw")
+            
+            // TODO: Animate Score on, then off. After animate off reset score
+            calculateScore()
         }
     }
     
     func calculateScore() {
-        flipModeScore = ((model.rollCount * 10) + (model.yawCount * 35) + (model.pitchCount * 50))
+        if model.rollCount > 0 || model.yawCount > 0 || model.pitchCount > 0 {
+            rollsLabel.text = "\(model.rollCount)"
+            spinsLabel.text = "\(model.yawCount)"
+            flipsLabel.text = "\(model.pitchCount)"
+        }
+        
+        flipModeScore = ((model.rollCount * 45) + (model.yawCount * 65) + (model.pitchCount * 100))
+        if flipModeScore > 0 {
+            scoreLabel.text = "\(flipModeScore)"
+        }
+        model.rollCount = 0
+        model.yawCount = 0
+        model.pitchCount = 0
     }
     
     // MARK: Handlers
@@ -124,16 +140,6 @@ class ViewController: UIViewController {
         scoreLabel.text = "\(flipModeScore)"
     }
     
-    @IBAction func startButton(sender: UIButton) {
-//        // start 3 second timer
-//        NSTimer.scheduledTimerWithTimeInterval(3.0, target: self, selector: "startStopFlipMode", userInfo: nil, repeats: false)
-//        startStopFlipMode()
-//        startTime = CFAbsoluteTimeGetCurrent()
-    }
-    
-    func startStopFlipMode () {
-//        flipModeRunning = !flipModeRunning
-    }
 }
 
 

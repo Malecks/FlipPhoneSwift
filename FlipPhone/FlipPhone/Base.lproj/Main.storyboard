@@ -85,15 +85,6 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="afw-e6-7FZ">
-                                <rect key="frame" x="166" y="451" width="47" height="30"/>
-                                <state key="normal" title="START">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="startButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="8SU-gc-eHi"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.086274509799999996" green="0.45098039220000002" blue="0.88235294119999996" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
@@ -158,6 +149,21 @@
                                     <constraint firstAttribute="width" secondItem="D5Y-ia-cay" secondAttribute="height" multiplier="1:1" id="cNx-jl-jnu"/>
                                 </constraints>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VZT-ds-kTA">
+                                <rect key="frame" x="170" y="507" width="34" height="30"/>
+                                <state key="normal" title="Start">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="startButton:" destination="qjq-4g-ra5" eventType="touchUpInside" id="O9u-p1-QJK"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="3.0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nO9-9p-ty6">
+                                <rect key="frame" x="129" y="169" width="119" height="48"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="40"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.89803921568627454" green="0.0078431372549019607" blue="0.10980392156862745" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
@@ -169,6 +175,9 @@
                     </view>
                     <tabBarItem key="tabBarItem" systemItem="favorites" id="2zE-bt-aKR"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="timeLabel" destination="nO9-9p-ty6" id="J6p-Im-JfI"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5Lg-Oj-PlV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
