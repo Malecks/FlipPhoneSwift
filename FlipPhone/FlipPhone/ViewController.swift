@@ -71,19 +71,9 @@ class ViewController: UIViewController {
     }
     
     func updateMotion() {
-        if motion.deviceMotion == nil // || flipModeRunning == false
-        {
+        if motion.deviceMotion == nil {
             return
         }
-        //        if model.didRoll((motion.deviceMotion?.attitude)!) {
-        //            rollsLabel.text = "\(model.rollCount)"
-        //        }
-        //        if model.didSpin((motion.deviceMotion?.attitude)!) {
-        //            spinsLabel.text = "\(model.yawCount)"
-        //        }
-        //        if model.didFlip((motion.deviceMotion?.attitude)!) {
-        //            flipsLabel.text = "\(model.pitchCount)"
-        //        }
         model.didRoll((motion.deviceMotion?.attitude)!)
         model.didSpin((motion.deviceMotion?.attitude)!)
         model.didFlip((motion.deviceMotion?.attitude)!)
@@ -99,15 +89,11 @@ class ViewController: UIViewController {
         
         if totalAcceleration > 4 {
             didStartThrow = true
-            flipModeRunning = true
             print("throwing!")
         }
         if didStartThrow && totalAcceleration < 1 {
             didStartThrow = false
-            flipModeRunning = false
             print("stopped throw")
-            
-            // TODO: Animate Score on, then off. After animate off reset score
             calculateScore()
         }
     }
@@ -119,13 +105,26 @@ class ViewController: UIViewController {
             flipsLabel.text = "\(model.pitchCount)"
         }
         
-        flipModeScore = ((model.rollCount * 45) + (model.yawCount * 65) + (model.pitchCount * 100))
+        flipModeScore = ((model.rollCount * 70) + (model.yawCount * 115) + (model.pitchCount * 175))
         if flipModeScore > 0 {
-            scoreLabel.text = "\(flipModeScore)"
+            UIView.animateWithDuration(0.35, delay: 0.0, options: UIViewAnimationOptions.CurveEaseOut, animations: {
+                self.scoreLabel.alpha = 0.0
+                }, completion: {
+                    (finished: Bool) -> Void in
+                    
+                    //Once the label is completely invisible, set the text and fade it back in
+                    self.scoreLabel.text = "\(self.flipModeScore)"
+                    
+                    // Fade in
+                    UIView.animateWithDuration(0.65, delay: 0.0, options: UIViewAnimationOptions.CurveEaseIn, animations: {
+                        self.scoreLabel.alpha = 1.0
+                        }, completion: {(finished: Bool) -> Void in
+                            self.model.rollCount = 0
+                            self.model.yawCount = 0
+                            self.model.pitchCount = 0
+                    })
+            })
         }
-        model.rollCount = 0
-        model.yawCount = 0
-        model.pitchCount = 0
     }
     
     // MARK: Handlers

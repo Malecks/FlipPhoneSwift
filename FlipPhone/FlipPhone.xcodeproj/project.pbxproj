@@ -13,10 +13,12 @@
 		9235789B1C6945AD00760BB9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9235789A1C6945AD00760BB9 /* Assets.xcassets */; };
 		9235789E1C6945AD00760BB9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9235789C1C6945AD00760BB9 /* LaunchScreen.storyboard */; };
 		923578A61C694C4700760BB9 /* RotationsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923578A51C694C4700760BB9 /* RotationsModel.swift */; };
-		923578A81C69544E00760BB9 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 923578A71C69544E00760BB9 /* icon.png */; };
 		923578AA1C6A506300760BB9 /* LaunchModeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923578A91C6A506300760BB9 /* LaunchModeViewController.swift */; };
-		923578AD1C6A7E2400760BB9 /* launchIcons-01.png in Resources */ = {isa = PBXBuildFile; fileRef = 923578AB1C6A7E2400760BB9 /* launchIcons-01.png */; };
 		923578D01C6A9D5F00760BB9 /* LaunchModeIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 923578CF1C6A9D5F00760BB9 /* LaunchModeIcon.png */; };
+		923578D71C6BBDF900760BB9 /* flipMode.png in Resources */ = {isa = PBXBuildFile; fileRef = 923578D51C6BBDF900760BB9 /* flipMode.png */; };
+		923578D81C6BBDF900760BB9 /* launchMode.png in Resources */ = {isa = PBXBuildFile; fileRef = 923578D61C6BBDF900760BB9 /* launchMode.png */; };
+		923578DA1C6BC8AC00760BB9 /* flipPhoneLogo2.png in Resources */ = {isa = PBXBuildFile; fileRef = 923578D91C6BC8AC00760BB9 /* flipPhoneLogo2.png */; };
+		923578DC1C6BCC0900760BB9 /* flipModeIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 923578DB1C6BCC0900760BB9 /* flipModeIcon.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,10 +30,12 @@
 		9235789D1C6945AD00760BB9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9235789F1C6945AD00760BB9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		923578A51C694C4700760BB9 /* RotationsModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RotationsModel.swift; sourceTree = "<group>"; };
-		923578A71C69544E00760BB9 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
 		923578A91C6A506300760BB9 /* LaunchModeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LaunchModeViewController.swift; sourceTree = "<group>"; };
-		923578AB1C6A7E2400760BB9 /* launchIcons-01.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "launchIcons-01.png"; sourceTree = "<group>"; };
 		923578CF1C6A9D5F00760BB9 /* LaunchModeIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = LaunchModeIcon.png; sourceTree = "<group>"; };
+		923578D51C6BBDF900760BB9 /* flipMode.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = flipMode.png; sourceTree = "<group>"; };
+		923578D61C6BBDF900760BB9 /* launchMode.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = launchMode.png; sourceTree = "<group>"; };
+		923578D91C6BC8AC00760BB9 /* flipPhoneLogo2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = flipPhoneLogo2.png; sourceTree = "<group>"; };
+		923578DB1C6BCC0900760BB9 /* flipModeIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = flipModeIcon.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -50,9 +54,11 @@
 			children = (
 				923578921C6945AD00760BB9 /* FlipPhone */,
 				923578911C6945AD00760BB9 /* Products */,
-				923578A71C69544E00760BB9 /* icon.png */,
-				923578AB1C6A7E2400760BB9 /* launchIcons-01.png */,
+				923578D91C6BC8AC00760BB9 /* flipPhoneLogo2.png */,
+				923578D51C6BBDF900760BB9 /* flipMode.png */,
+				923578D61C6BBDF900760BB9 /* launchMode.png */,
 				923578CF1C6A9D5F00760BB9 /* LaunchModeIcon.png */,
+				923578DB1C6BCC0900760BB9 /* flipModeIcon.png */,
 			);
 			sourceTree = "<group>";
 		};
@@ -138,10 +144,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				923578A81C69544E00760BB9 /* icon.png in Resources */,
-				923578AD1C6A7E2400760BB9 /* launchIcons-01.png in Resources */,
+				923578D71C6BBDF900760BB9 /* flipMode.png in Resources */,
+				923578D81C6BBDF900760BB9 /* launchMode.png in Resources */,
 				923578D01C6A9D5F00760BB9 /* LaunchModeIcon.png in Resources */,
 				9235789E1C6945AD00760BB9 /* LaunchScreen.storyboard in Resources */,
+				923578DC1C6BCC0900760BB9 /* flipModeIcon.png in Resources */,
+				923578DA1C6BC8AC00760BB9 /* flipPhoneLogo2.png in Resources */,
 				9235789B1C6945AD00760BB9 /* Assets.xcassets in Resources */,
 				923578991C6945AD00760BB9 /* Main.storyboard in Resources */,
 			);

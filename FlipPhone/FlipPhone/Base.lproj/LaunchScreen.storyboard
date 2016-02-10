@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -14,14 +15,31 @@
                         <viewControllerLayoutGuide type="bottom" id="xb3-aO-Qok"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="flipPhoneLogo2.png" translatesAutoresizingMaskIntoConstraints="NO" id="n0S-xX-pW9">
+                                <rect key="frame" x="63" y="209" width="250" height="250"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="n0S-xX-pW9" secondAttribute="height" multiplier="1:1" id="gwH-3c-Gau"/>
+                                    <constraint firstAttribute="width" constant="250" id="pqG-LS-0bH"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.086274509799999996" green="0.45098039220000002" blue="0.88235294119999996" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="n0S-xX-pW9" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="MD4-Vm-qVC"/>
+                            <constraint firstItem="n0S-xX-pW9" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="mSU-y7-Gfq"/>
+                        </constraints>
                     </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="53" y="375"/>
+            <point key="canvasLocation" x="52.5" y="374.5"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="flipPhoneLogo2.png" width="2133" height="2133"/>
+    </resources>
 </document>
