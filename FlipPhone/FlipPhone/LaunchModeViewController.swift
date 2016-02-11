@@ -17,10 +17,13 @@ class LaunchModeViewController: UIViewController {
     var launchModeRunning: Bool = false
     var startTime : CFAbsoluteTime!
     var motion = CMMotionManager()
+    var didStartThrow: Bool = false
+    var startTimeOfFreefall: CFAbsoluteTime = 0.0
+    var endTimeOfFreefall: CFAbsoluteTime = 0.0
     var timeInFreefall: Float = 0
     var bestTimeInFreefall: Float = 0
     var distanceFallen: Float = 0
-
+    
     
     // MARK: View
     override func viewWillAppear(animated: Bool) {
@@ -30,7 +33,6 @@ class LaunchModeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //        self.presentingViewController
     }
     
     override func viewDidDisappear(animated: Bool) {
@@ -58,40 +60,68 @@ class LaunchModeViewController: UIViewController {
     
     // MARK: Timer and updates
     func startTimer() {
-        NSTimer.scheduledTimerWithTimeInterval(0.01, target: self, selector: Selector("updateAcceleration"), userInfo: nil, repeats: true)
+        NSTimer.scheduledTimerWithTimeInterval(0.01, target: self, selector: Selector("updateGravity"), userInfo: nil, repeats: true)
+        //        NSTimer.scheduledTimerWithTimeInterval(0.01, target: self, selector: Selector("updateAcceleration"), userInfo: nil, repeats: true)
     }
     
     
-    func updateAcceleration() {
-        if motion.accelerometerActive == false || launchModeRunning == false {
+    func updateGravity() {
+        if motion.deviceMotionActive == false || launchModeRunning == false {
             return
         }
-        // TODO: Get absolute times, when freefall starts and when it ends.
-        
-        
-        print("NORMAL\(motion.deviceMotion?.gravity.z)")
-        // if freefall?
-        if (motion.deviceMotion?.gravity.z) < 0.30 && (motion.deviceMotion?.gravity.z) > -0.30 {
-            print("FREEFALL: \(motion.deviceMotion?.gravity.z)")
-            timeInFreefall += 1
-            if timeInFreefall > bestTimeInFreefall {
-                bestTimeInFreefall = timeInFreefall
-            }
+        // if freefall
+        if (motion.deviceMotion?.gravity.z) < 0.25 && (motion.deviceMotion?.gravity.z) > -0.25 { // if gravity.z is around 0 (+ or - .25)
             
-        } else {
-        
-            timeInFreefall = 0
+            // get time at start of freefall
+            if didStartThrow == false {
+                startTimeOfFreefall = CFAbsoluteTimeGetCurrent()
+                print("START of freefall:\(startTimeOfFreefall)")
+                didStartThrow = true
+            }
         }
-    
-        // time label
+        
+        // get end time when out of freefall
+        if didStartThrow && motion.deviceMotion?.gravity.z < -0.5 { // if gravity.z leaves freefall (approaches -1)
+            endTimeOfFreefall = CFAbsoluteTimeGetCurrent()
+            print("END of freefall: \(endTimeOfFreefall)")
+            let timeDifference: CFTimeInterval = compareTimes()
+            let newDistance = calcDistance(Float(timeDifference))
+            if newDistance > distanceFallen {
+                distanceFallen = newDistance
+            }
+            didStartThrow = false
+        }
+        
+        // update time label
         let remainingTime = round((3.0 - (CFAbsoluteTimeGetCurrent() - startTime)) * 100) / 100
         if remainingTime > 0 {
             timeLabel.text = "\(remainingTime)"
-            print(remainingTime)
         } else {
             timeLabel.text = "0.0"
         }
     }
+    
+    //    func updateAcceleration() {
+    //        if motion.accelerometerAvailable == false {
+    //            return
+    //        }
+    //        let aX = motion.accelerometerData?.acceleration.x
+    //        let aY = motion.accelerometerData?.acceleration.y
+    //        let aZ = motion.accelerometerData?.acceleration.z
+    //        let totalAcceleration = sqrt((aX! * aX!) + (aY! * aY!) + (aZ! * aZ!))
+    //
+    //        if didStartThrow && totalAcceleration > 0.5 {
+    //            endTimeOfFreefall = CFAbsoluteTimeGetCurrent()
+    //            print("END of freefall: \(endTimeOfFreefall)")
+    //            let timeDifference: CFTimeInterval = compareTimes()
+    //            let newDistance = calcDistance(Float(timeDifference))
+    //            if newDistance > distanceFallen {
+    //                distanceFallen = newDistance
+    //            }
+    //            didStartThrow = false
+    //        }
+    //    }
+    
     
     
     // MARK: Handlers
@@ -109,21 +139,24 @@ class LaunchModeViewController: UIViewController {
     
     func stopLaunchMode () {
         if launchModeRunning {
-            print(timeInFreefall)
-            distanceFallen = calcDistance(bestTimeInFreefall)
             distanceFallenLabel.text = "\(distanceFallen)"
-            bestTimeInFreefall = 0
+            distanceFallen = 0
         }
         launchModeRunning = false
     }
     
-    
-    func calcDistance (timeInMilliseconds: Float) -> Float{
-        let timeInSeconds: Float = timeInMilliseconds / 1000
-        print("TIME IN SECONDS: \(timeInSeconds)")
+    // MARK: Calculations
+    func calcDistance (timeInSeconds: Float) -> Float{
         let acceleration: Float = 9.81
         let distanceFallen = (acceleration / 2) * (timeInSeconds * timeInSeconds)
-        return distanceFallen
+        let roundedDistanceFallen = round(distanceFallen * 100) / 100
+        return roundedDistanceFallen
+    }
+    
+    func compareTimes () -> CFTimeInterval {
+        let timeInFreefall: CFTimeInterval = endTimeOfFreefall - startTimeOfFreefall
+        print("Time In Freefall: \(timeInFreefall)")
+        return timeInFreefall
     }
     
     /*

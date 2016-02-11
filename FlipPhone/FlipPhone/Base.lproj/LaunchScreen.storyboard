@@ -18,7 +18,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="flipPhoneLogo2.png" translatesAutoresizingMaskIntoConstraints="NO" id="n0S-xX-pW9">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="flipMode.png" translatesAutoresizingMaskIntoConstraints="NO" id="n0S-xX-pW9">
                                 <rect key="frame" x="63" y="209" width="250" height="250"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="n0S-xX-pW9" secondAttribute="height" multiplier="1:1" id="gwH-3c-Gau"/>
@@ -40,6 +40,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="flipPhoneLogo2.png" width="2133" height="2133"/>
+        <image name="flipMode.png" width="750" height="750"/>
     </resources>
 </document>
