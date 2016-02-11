@@ -12,16 +12,31 @@ import CoreMotion
 class LaunchModeViewController: UIViewController {
     // MARK: Variables
     @IBOutlet var timeLabel: UILabel!
+    @IBOutlet var distanceFallenLabel: UILabel!
     
     var launchModeRunning: Bool = false
     var startTime : CFAbsoluteTime!
     var motion = CMMotionManager()
-    var didStartThrow: Bool = false
+    var timeInFreefall: Float = 0
+    var bestTimeInFreefall: Float = 0
+    var distanceFallen: Float = 0
+
     
     // MARK: View
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        prepareCoreMotion()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         //        self.presentingViewController
+    }
+    
+    override func viewDidDisappear(animated: Bool) {
+        super.viewDidDisappear(animated)
+        motion.stopDeviceMotionUpdates()
+        motion.stopAccelerometerUpdates()
     }
     
     override func didReceiveMemoryWarning() {
@@ -30,6 +45,16 @@ class LaunchModeViewController: UIViewController {
     }
     
     // MARK: Preparation
+    func prepareCoreMotion() {
+        if motion.deviceMotionAvailable {
+            motion.deviceMotionUpdateInterval = 0.01
+            motion.startDeviceMotionUpdatesUsingReferenceFrame(CMAttitudeReferenceFrame.XArbitraryZVertical)
+            if motion.accelerometerAvailable {
+                motion.accelerometerUpdateInterval = 0.01
+                motion.startAccelerometerUpdates()
+            }
+        }
+    }
     
     // MARK: Timer and updates
     func startTimer() {
@@ -38,35 +63,34 @@ class LaunchModeViewController: UIViewController {
     
     
     func updateAcceleration() {
-        if launchModeRunning == false {
+        if motion.accelerometerActive == false || launchModeRunning == false {
             return
         }
+        // TODO: Get absolute times, when freefall starts and when it ends.
         
-                print("xyz:\(motion.accelerometerData?.acceleration.y, motion.accelerometerData?.acceleration.x, motion.accelerometerData?.acceleration.z)")
-//        let aX = motion.accelerometerData?.acceleration.x
-//        let aY = motion.accelerometerData?.acceleration.y
-//        let aZ = motion.accelerometerData?.acceleration.z
-//        let totalAcceleration = sqrt((aX! * aX!) + (aY! * aY!) + (aZ! * aZ!))
         
-        let remainingTime = round((3.0 - (CFAbsoluteTimeGetCurrent() - startTime)) * 10) / 10
-        print("\(remainingTime)")
+        print("NORMAL\(motion.deviceMotion?.gravity.z)")
+        // if freefall?
+        if (motion.deviceMotion?.gravity.z) < 0.30 && (motion.deviceMotion?.gravity.z) > -0.30 {
+            print("FREEFALL: \(motion.deviceMotion?.gravity.z)")
+            timeInFreefall += 1
+            if timeInFreefall > bestTimeInFreefall {
+                bestTimeInFreefall = timeInFreefall
+            }
+            
+        } else {
+        
+            timeInFreefall = 0
+        }
+    
+        // time label
+        let remainingTime = round((3.0 - (CFAbsoluteTimeGetCurrent() - startTime)) * 100) / 100
         if remainingTime > 0 {
             timeLabel.text = "\(remainingTime)"
+            print(remainingTime)
         } else {
             timeLabel.text = "0.0"
         }
-        
-//        if totalAcceleration > 4 {
-//            didStartThrow = true
-//            print("throwing!")
-//        }
-//        if didStartThrow && totalAcceleration < 1 {
-//            didStartThrow = false
-//            print("stopped throw")
-//            
-//            // TODO: Animate Score on, then off. After animate off reset score
-//            
-//        }
     }
     
     
@@ -78,13 +102,28 @@ class LaunchModeViewController: UIViewController {
     @IBAction func startButton(sender: UIButton) {
         // start 3 second timer
         startTimer()
-        NSTimer.scheduledTimerWithTimeInterval(3.0, target: self, selector: "startStopLaunchMode", userInfo: nil, repeats: false)
-        startStopLaunchMode()
+        launchModeRunning = true
+        NSTimer.scheduledTimerWithTimeInterval(3.0, target: self, selector: "stopLaunchMode", userInfo: nil, repeats: false)
         startTime = CFAbsoluteTimeGetCurrent()
     }
     
-    func startStopLaunchMode () {
-        launchModeRunning = !launchModeRunning
+    func stopLaunchMode () {
+        if launchModeRunning {
+            print(timeInFreefall)
+            distanceFallen = calcDistance(bestTimeInFreefall)
+            distanceFallenLabel.text = "\(distanceFallen)"
+            bestTimeInFreefall = 0
+        }
+        launchModeRunning = false
+    }
+    
+    
+    func calcDistance (timeInMilliseconds: Float) -> Float{
+        let timeInSeconds: Float = timeInMilliseconds / 1000
+        print("TIME IN SECONDS: \(timeInSeconds)")
+        let acceleration: Float = 9.81
+        let distanceFallen = (acceleration / 2) * (timeInSeconds * timeInSeconds)
+        return distanceFallen
     }
     
     /*

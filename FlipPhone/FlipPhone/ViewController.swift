@@ -38,6 +38,7 @@ class ViewController: UIViewController {
     override func viewDidDisappear(animated: Bool) {
         super.viewDidDisappear(animated)
         motion.stopDeviceMotionUpdates()
+        motion.stopAccelerometerUpdates()
     }
     
     override func didReceiveMemoryWarning() {
@@ -58,7 +59,6 @@ class ViewController: UIViewController {
             motion.deviceMotionUpdateInterval = 0.01
             motion.startDeviceMotionUpdatesUsingReferenceFrame(CMAttitudeReferenceFrame.XArbitraryZVertical)
             
-            // not sure if necessary on top of motion updates
             motion.accelerometerUpdateInterval = 0.01
             motion.startAccelerometerUpdates()
         }
@@ -81,6 +81,9 @@ class ViewController: UIViewController {
     }
     
     func updateAcceleration() {
+        if motion.accelerometerAvailable == false {
+            return
+        }
         //        print("xyz:\(motion.accelerometerData?.acceleration.y, motion.accelerometerData?.acceleration.x, motion.accelerometerData?.acceleration.z)")
         let aX = motion.accelerometerData?.acceleration.x
         let aY = motion.accelerometerData?.acceleration.y
