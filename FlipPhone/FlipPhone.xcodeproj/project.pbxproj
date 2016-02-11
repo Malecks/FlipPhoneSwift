@@ -22,6 +22,8 @@
 		92A9DD0F1C6CE715002CB14E /* Mission Gothic Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 92A9DD0A1C6CE606002CB14E /* Mission Gothic Bold.otf */; };
 		92A9DD101C6CE718002CB14E /* Mission Gothic Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 92A9DD0B1C6CE606002CB14E /* Mission Gothic Light.otf */; };
 		92A9DD121C6CEB9B002CB14E /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9235789F1C6945AD00760BB9 /* Info.plist */; };
+		92A9DD341C6D3149002CB14E /* PatternView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92A9DD331C6D3149002CB14E /* PatternView.swift */; };
+		92A9DD381C6D48DA002CB14E /* LaunchPatternView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92A9DD371C6D48DA002CB14E /* LaunchPatternView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,6 +43,8 @@
 		923578DB1C6BCC0900760BB9 /* flipModeIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = flipModeIcon.png; sourceTree = "<group>"; };
 		92A9DD0A1C6CE606002CB14E /* Mission Gothic Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Mission Gothic Bold.otf"; sourceTree = "<group>"; };
 		92A9DD0B1C6CE606002CB14E /* Mission Gothic Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Mission Gothic Light.otf"; sourceTree = "<group>"; };
+		92A9DD331C6D3149002CB14E /* PatternView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PatternView.swift; sourceTree = "<group>"; };
+		92A9DD371C6D48DA002CB14E /* LaunchPatternView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LaunchPatternView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +83,8 @@
 				923578951C6945AD00760BB9 /* ViewController.swift */,
 				923578A91C6A506300760BB9 /* LaunchModeViewController.swift */,
 				923578A51C694C4700760BB9 /* RotationsModel.swift */,
+				92A9DD331C6D3149002CB14E /* PatternView.swift */,
+				92A9DD371C6D48DA002CB14E /* LaunchPatternView.swift */,
 				923578971C6945AD00760BB9 /* Main.storyboard */,
 				9235789A1C6945AD00760BB9 /* Assets.xcassets */,
 				9235789C1C6945AD00760BB9 /* LaunchScreen.storyboard */,
@@ -192,6 +198,8 @@
 				923578961C6945AD00760BB9 /* ViewController.swift in Sources */,
 				923578941C6945AD00760BB9 /* AppDelegate.swift in Sources */,
 				923578A61C694C4700760BB9 /* RotationsModel.swift in Sources */,
+				92A9DD381C6D48DA002CB14E /* LaunchPatternView.swift in Sources */,
+				92A9DD341C6D3149002CB14E /* PatternView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

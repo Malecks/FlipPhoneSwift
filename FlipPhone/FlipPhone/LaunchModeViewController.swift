@@ -112,29 +112,6 @@ class LaunchModeViewController: UIViewController {
         }
     }
     
-    //    func updateAcceleration() {
-    //        if motion.accelerometerAvailable == false {
-    //            return
-    //        }
-    //        let aX = motion.accelerometerData?.acceleration.x
-    //        let aY = motion.accelerometerData?.acceleration.y
-    //        let aZ = motion.accelerometerData?.acceleration.z
-    //        let totalAcceleration = sqrt((aX! * aX!) + (aY! * aY!) + (aZ! * aZ!))
-    //
-    //        if didStartThrow && totalAcceleration > 0.5 {
-    //            endTimeOfFreefall = CFAbsoluteTimeGetCurrent()
-    //            print("END of freefall: \(endTimeOfFreefall)")
-    //            let timeDifference: CFTimeInterval = compareTimes()
-    //            let newDistance = calcDistance(Float(timeDifference))
-    //            if newDistance > distanceFallen {
-    //                distanceFallen = newDistance
-    //            }
-    //            didStartThrow = false
-    //        }
-    //    }
-    
-    
-    
     // MARK: Handlers
     @IBAction func flipModeButton(sender: UIButton) {
         dismissViewControllerAnimated(true, completion: nil)
