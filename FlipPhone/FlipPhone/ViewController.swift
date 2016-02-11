@@ -51,7 +51,7 @@ class ViewController: UIViewController {
         rollsLabel.text = "\(model.rollCount)"
         spinsLabel.text = "\(model.yawCount)"
         flipsLabel.text = "\(model.pitchCount)"
-        scoreLabel.text = "\(flipModeScore)"
+    //    scoreLabel.text = "\(flipModeScore)"
     }
     
     func prepareCoreMotion() {

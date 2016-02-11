@@ -4,8 +4,27 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <mutableArray key="Mission Gothic Bold.otf">
+            <string>MissionGothic-Bold</string>
+            <string>MissionGothic-Bold</string>
+        </mutableArray>
+        <mutableArray key="Mission Gothic Light.otf">
+            <string>MissionGothic-Light</string>
+            <string>MissionGothic-Light</string>
+            <string>MissionGothic-Light</string>
+            <string>MissionGothic-Light</string>
+            <string>MissionGothic-Light</string>
+            <string>MissionGothic-Light</string>
+            <string>MissionGothic-Light</string>
+            <string>MissionGothic-Light</string>
+            <string>MissionGothic-Light</string>
+            <string>MissionGothic-Light</string>
+        </mutableArray>
+    </customFonts>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -20,44 +39,44 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Flips" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6jh-1W-47S">
-                                <rect key="frame" x="99" y="256" width="36" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <rect key="frame" x="107" y="261" width="31" height="23"/>
+                                <fontDescription key="fontDescription" name="MissionGothic-Light" family="Mission Gothic" pointSize="17"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Spins" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="suK-tc-zur">
-                                <rect key="frame" x="166" y="256" width="43" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <rect key="frame" x="169" y="261" width="37" height="23"/>
+                                <fontDescription key="fontDescription" name="MissionGothic-Light" family="Mission Gothic" pointSize="17"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rolls" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tGB-CC-que">
-                                <rect key="frame" x="238" y="256" width="37" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <rect key="frame" x="235" y="261" width="32" height="23"/>
+                                <fontDescription key="fontDescription" name="MissionGothic-Light" family="Mission Gothic" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="lightTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jh0-Mo-RwX">
-                                <rect key="frame" x="175" y="277" width="25" height="48"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="40"/>
+                                <rect key="frame" x="178" y="284" width="20" height="53"/>
+                                <fontDescription key="fontDescription" name="MissionGothic-Light" family="Mission Gothic" pointSize="40"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NSt-g3-1gG">
-                                <rect key="frame" x="244" y="277" width="25" height="48"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="40"/>
+                                <rect key="frame" x="242" y="284" width="20" height="53"/>
+                                <fontDescription key="fontDescription" name="MissionGothic-Light" family="Mission Gothic" pointSize="40"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lf0-iM-duJ">
-                                <rect key="frame" x="105" y="277" width="25" height="48"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="40"/>
+                                <rect key="frame" x="113" y="284" width="20" height="53"/>
+                                <fontDescription key="fontDescription" name="MissionGothic-Light" family="Mission Gothic" pointSize="40"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wT8-W5-OMR">
-                                <rect key="frame" x="150" y="595" width="75" height="42"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <rect key="frame" x="157" y="592" width="62" height="45"/>
+                                <fontDescription key="fontDescription" name="MissionGothic-Light" family="Mission Gothic" pointSize="25"/>
                                 <state key="normal" title="RESET">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -80,9 +99,9 @@
                                     </segue>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="000" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wGO-Sf-5c9">
-                                <rect key="frame" x="115" y="152" width="146" height="96"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="80"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Flip!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wGO-Sf-5c9">
+                                <rect key="frame" x="31" y="148" width="313" height="105"/>
+                                <fontDescription key="fontDescription" name="MissionGothic-Bold" family="Mission Gothic" pointSize="80"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -101,6 +120,8 @@
                             <constraint firstItem="NSt-g3-1gG" firstAttribute="top" secondItem="tGB-CC-que" secondAttribute="bottom" id="Bix-4W-2az"/>
                             <constraint firstItem="ctp-YT-Ju6" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="DbT-8o-guF"/>
                             <constraint firstItem="suK-tc-zur" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Ekt-Ok-gSl"/>
+                            <constraint firstItem="wGO-Sf-5c9" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="15" id="FUp-O0-rmt"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="wGO-Sf-5c9" secondAttribute="trailing" constant="15" id="JNf-RV-gyK"/>
                             <constraint firstItem="jh0-Mo-RwX" firstAttribute="leading" secondItem="Lf0-iM-duJ" secondAttribute="trailing" constant="45" id="Jef-5r-y12"/>
                             <constraint firstItem="NSt-g3-1gG" firstAttribute="leading" secondItem="jh0-Mo-RwX" secondAttribute="trailing" constant="44" id="KTS-x2-Lmm"/>
                             <constraint firstItem="wGO-Sf-5c9" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" multiplier="0.6" id="LR0-fC-x1b"/>
@@ -164,8 +185,8 @@
                                 </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VZT-ds-kTA">
-                                <rect key="frame" x="150" y="595" width="75" height="42"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <rect key="frame" x="159" y="592" width="58" height="45"/>
+                                <fontDescription key="fontDescription" name="MissionGothic-Light" family="Mission Gothic" pointSize="25"/>
                                 <state key="normal" title="START">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -174,18 +195,25 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3.0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nO9-9p-ty6">
-                                <rect key="frame" x="128" y="310" width="119" height="48"/>
+                                <rect key="frame" x="128" y="307" width="119" height="53"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="119" id="OaA-B0-z3X"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="40"/>
+                                <fontDescription key="fontDescription" name="MissionGothic-Light" family="Mission Gothic" pointSize="40"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uc7-ME-IlJ" userLabel="distanceFallenLabel">
-                                <rect key="frame" x="175" y="186" width="25" height="48"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="40"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Launch!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uc7-ME-IlJ" userLabel="distanceFallenLabel">
+                                <rect key="frame" x="31" y="148" width="313" height="105"/>
+                                <fontDescription key="fontDescription" name="MissionGothic-Bold" family="Mission Gothic" pointSize="80"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Time Left" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dyW-k8-agI">
+                                <rect key="frame" x="157" y="284" width="62" height="23"/>
+                                <color key="tintColor" red="0.8980392157" green="0.0078431372550000003" blue="0.10980392160000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="MissionGothic-Light" family="Mission Gothic" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="lightTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
@@ -193,18 +221,24 @@
                         <constraints>
                             <constraint firstItem="kGK-6H-XMu" firstAttribute="top" secondItem="gXe-kk-nzN" secondAttribute="bottom" constant="20" id="1ue-Y2-yIo"/>
                             <constraint firstItem="nO9-9p-ty6" firstAttribute="centerX" secondItem="TBr-XF-WeW" secondAttribute="centerX" id="ChH-0s-WtR"/>
+                            <constraint firstItem="dyW-k8-agI" firstAttribute="centerX" secondItem="TBr-XF-WeW" secondAttribute="centerX" id="GGe-lQ-Moa"/>
                             <constraint firstItem="uc7-ME-IlJ" firstAttribute="centerX" secondItem="TBr-XF-WeW" secondAttribute="centerX" id="LbS-67-feh"/>
                             <constraint firstItem="D5Y-ia-cay" firstAttribute="centerY" secondItem="TBr-XF-WeW" secondAttribute="centerY" id="M1C-9f-GTJ"/>
                             <constraint firstItem="VZT-ds-kTA" firstAttribute="centerX" secondItem="TBr-XF-WeW" secondAttribute="centerX" id="QoZ-Bl-oyx"/>
                             <constraint firstItem="nO9-9p-ty6" firstAttribute="top" secondItem="uc7-ME-IlJ" secondAttribute="bottom" constant="76" id="V32-dl-y4D"/>
                             <constraint firstItem="kGK-6H-XMu" firstAttribute="centerX" secondItem="TBr-XF-WeW" secondAttribute="centerX" id="YWT-Ej-oe9"/>
+                            <constraint firstItem="uc7-ME-IlJ" firstAttribute="leading" secondItem="TBr-XF-WeW" secondAttribute="leadingMargin" constant="15" id="isi-37-YXy"/>
                             <constraint firstItem="D5Y-ia-cay" firstAttribute="centerX" secondItem="TBr-XF-WeW" secondAttribute="centerX" id="k15-Hx-GCY"/>
+                            <constraint firstItem="uc7-ME-IlJ" firstAttribute="centerY" secondItem="TBr-XF-WeW" secondAttribute="centerY" multiplier="0.6" id="lGQ-dF-iNJ"/>
                             <constraint firstItem="C8o-i3-SH4" firstAttribute="top" secondItem="D5Y-ia-cay" secondAttribute="bottom" constant="115" id="mPz-WL-fnv"/>
                             <constraint firstItem="C8o-i3-SH4" firstAttribute="top" secondItem="VZT-ds-kTA" secondAttribute="bottom" constant="30" id="mXl-Eg-Mlq"/>
+                            <constraint firstItem="nO9-9p-ty6" firstAttribute="top" secondItem="dyW-k8-agI" secondAttribute="bottom" id="nMD-tJ-qVD"/>
                             <constraint firstItem="nO9-9p-ty6" firstAttribute="centerY" secondItem="TBr-XF-WeW" secondAttribute="centerY" id="oMV-vc-0me"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="uc7-ME-IlJ" secondAttribute="trailing" constant="15" id="qcC-5a-oo0"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
+                                <exclude reference="V32-dl-y4D"/>
                                 <exclude reference="M1C-9f-GTJ"/>
                             </mask>
                         </variation>
@@ -218,7 +252,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5Lg-Oj-PlV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1430.5" y="101.5"/>
+            <point key="canvasLocation" x="1368.5" y="101.5"/>
         </scene>
     </scenes>
     <resources>

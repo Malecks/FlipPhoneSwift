@@ -19,6 +19,9 @@
 		923578D81C6BBDF900760BB9 /* launchMode.png in Resources */ = {isa = PBXBuildFile; fileRef = 923578D61C6BBDF900760BB9 /* launchMode.png */; };
 		923578DA1C6BC8AC00760BB9 /* flipPhoneLogo2.png in Resources */ = {isa = PBXBuildFile; fileRef = 923578D91C6BC8AC00760BB9 /* flipPhoneLogo2.png */; };
 		923578DC1C6BCC0900760BB9 /* flipModeIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 923578DB1C6BCC0900760BB9 /* flipModeIcon.png */; };
+		92A9DD0F1C6CE715002CB14E /* Mission Gothic Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 92A9DD0A1C6CE606002CB14E /* Mission Gothic Bold.otf */; };
+		92A9DD101C6CE718002CB14E /* Mission Gothic Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 92A9DD0B1C6CE606002CB14E /* Mission Gothic Light.otf */; };
+		92A9DD121C6CEB9B002CB14E /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9235789F1C6945AD00760BB9 /* Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +39,8 @@
 		923578D61C6BBDF900760BB9 /* launchMode.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = launchMode.png; sourceTree = "<group>"; };
 		923578D91C6BC8AC00760BB9 /* flipPhoneLogo2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = flipPhoneLogo2.png; sourceTree = "<group>"; };
 		923578DB1C6BCC0900760BB9 /* flipModeIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = flipModeIcon.png; sourceTree = "<group>"; };
+		92A9DD0A1C6CE606002CB14E /* Mission Gothic Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Mission Gothic Bold.otf"; sourceTree = "<group>"; };
+		92A9DD0B1C6CE606002CB14E /* Mission Gothic Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Mission Gothic Light.otf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,11 +59,8 @@
 			children = (
 				923578921C6945AD00760BB9 /* FlipPhone */,
 				923578911C6945AD00760BB9 /* Products */,
-				923578D91C6BC8AC00760BB9 /* flipPhoneLogo2.png */,
-				923578D51C6BBDF900760BB9 /* flipMode.png */,
-				923578D61C6BBDF900760BB9 /* launchMode.png */,
-				923578CF1C6A9D5F00760BB9 /* LaunchModeIcon.png */,
-				923578DB1C6BCC0900760BB9 /* flipModeIcon.png */,
+				92A9DD0C1C6CE60C002CB14E /* images */,
+				92A9DD0D1C6CE625002CB14E /* fonts */,
 			);
 			sourceTree = "<group>";
 		};
@@ -83,6 +85,27 @@
 				9235789F1C6945AD00760BB9 /* Info.plist */,
 			);
 			path = FlipPhone;
+			sourceTree = "<group>";
+		};
+		92A9DD0C1C6CE60C002CB14E /* images */ = {
+			isa = PBXGroup;
+			children = (
+				923578D91C6BC8AC00760BB9 /* flipPhoneLogo2.png */,
+				923578D51C6BBDF900760BB9 /* flipMode.png */,
+				923578D61C6BBDF900760BB9 /* launchMode.png */,
+				923578CF1C6A9D5F00760BB9 /* LaunchModeIcon.png */,
+				923578DB1C6BCC0900760BB9 /* flipModeIcon.png */,
+			);
+			name = images;
+			sourceTree = "<group>";
+		};
+		92A9DD0D1C6CE625002CB14E /* fonts */ = {
+			isa = PBXGroup;
+			children = (
+				92A9DD0A1C6CE606002CB14E /* Mission Gothic Bold.otf */,
+				92A9DD0B1C6CE606002CB14E /* Mission Gothic Light.otf */,
+			);
+			name = fonts;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -144,6 +167,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				92A9DD121C6CEB9B002CB14E /* Info.plist in Resources */,
 				923578D71C6BBDF900760BB9 /* flipMode.png in Resources */,
 				923578D81C6BBDF900760BB9 /* launchMode.png in Resources */,
 				923578D01C6A9D5F00760BB9 /* LaunchModeIcon.png in Resources */,
@@ -152,6 +176,8 @@
 				923578DA1C6BC8AC00760BB9 /* flipPhoneLogo2.png in Resources */,
 				9235789B1C6945AD00760BB9 /* Assets.xcassets in Resources */,
 				923578991C6945AD00760BB9 /* Main.storyboard in Resources */,
+				92A9DD101C6CE718002CB14E /* Mission Gothic Light.otf in Resources */,
+				92A9DD0F1C6CE715002CB14E /* Mission Gothic Bold.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
