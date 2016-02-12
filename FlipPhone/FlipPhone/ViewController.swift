@@ -14,6 +14,8 @@ class ViewController: UIViewController {
     let motion = CMMotionManager()
     let model = RotationsModel()
     
+    let topPatternView: PatternView = PatternView()
+    
     var flipModeScore = 0
     var didStartThrow: Bool = false
     var flipModeRunning: Bool = false
@@ -26,6 +28,9 @@ class ViewController: UIViewController {
     // MARK: View
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
+        topPatternView.frame = CGRectMake(0, 0, self.view.frame.width, self.view.frame.height)
+        view .addSubview(topPatternView)
+        view .addSubview(topPatternView)
         prepareCoreMotion()
     }
     
@@ -33,6 +38,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         prepareLabels()
         startTimer()
+        fadeOutTopPattern()
     }
     
     override func viewDidDisappear(animated: Bool) {
@@ -142,6 +148,10 @@ class ViewController: UIViewController {
         scoreLabel.text = "\(flipModeScore)"
     }
     
+    
+    // MARK: Animation
+    func fadeOutTopPattern () {
+        UIView.animateWithDuration(1.5, delay: 1.0, options: UIViewAnimationOptions.CurveEaseOut, animations: { self.topPatternView.alpha = 0.0 }, completion: nil)}
 }
 
 

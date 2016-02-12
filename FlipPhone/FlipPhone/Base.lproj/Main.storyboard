@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="wS9-GX-i5D">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
@@ -251,6 +251,51 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5Lg-Oj-PlV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1387.5" y="101.5"/>
+        </scene>
+        <!--Intro View Controller-->
+        <scene sceneID="ldT-6Z-oqQ">
+            <objects>
+                <viewController id="wS9-GX-i5D" customClass="IntroViewController" customModule="FlipPhone" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="LJP-TK-ngg"/>
+                        <viewControllerLayoutGuide type="bottom" id="zCC-8u-OKx"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="JA5-F3-idL">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tjQ-KI-ODa" customClass="PatternView" customModule="FlipPhone" customModuleProvider="target">
+                                <rect key="frame" x="-1" y="0.0" width="376" height="667"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="flipMode.png" translatesAutoresizingMaskIntoConstraints="NO" id="g5E-4Z-SBv">
+                                <rect key="frame" x="62" y="209" width="250" height="250"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="250" id="7Wh-4S-HT7"/>
+                                    <constraint firstAttribute="width" secondItem="g5E-4Z-SBv" secondAttribute="height" multiplier="1:1" id="Cr5-7z-RZk"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.086274509799999996" green="0.45098039220000002" blue="0.88235294119999996" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="g5E-4Z-SBv" firstAttribute="centerY" secondItem="JA5-F3-idL" secondAttribute="centerY" id="7HH-4Q-Edc"/>
+                            <constraint firstItem="tjQ-KI-ODa" firstAttribute="centerX" secondItem="JA5-F3-idL" secondAttribute="centerX" id="R9V-w4-8kK"/>
+                            <constraint firstItem="g5E-4Z-SBv" firstAttribute="centerX" secondItem="JA5-F3-idL" secondAttribute="centerX" id="Wbp-qi-ggt"/>
+                            <constraint firstItem="tjQ-KI-ODa" firstAttribute="width" secondItem="JA5-F3-idL" secondAttribute="width" id="akn-rS-khz"/>
+                            <constraint firstItem="tjQ-KI-ODa" firstAttribute="centerY" secondItem="JA5-F3-idL" secondAttribute="centerY" id="oMq-S5-jYM"/>
+                            <constraint firstItem="tjQ-KI-ODa" firstAttribute="height" secondItem="JA5-F3-idL" secondAttribute="height" id="qxb-Qr-szj"/>
+                        </constraints>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="logoView" destination="g5E-4Z-SBv" id="qU9-xf-JN9"/>
+                        <outlet property="patternView" destination="tjQ-KI-ODa" id="jMz-mO-KgX"/>
+                        <segue destination="BYZ-38-t0r" kind="presentation" identifier="flipMode" animates="NO" modalTransitionStyle="flipHorizontal" id="Ru9-9D-TWz"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="UsP-KW-GUq" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1140.5" y="-746.5"/>
         </scene>
     </scenes>
     <resources>

@@ -24,6 +24,8 @@
 		92A9DD121C6CEB9B002CB14E /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9235789F1C6945AD00760BB9 /* Info.plist */; };
 		92A9DD341C6D3149002CB14E /* PatternView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92A9DD331C6D3149002CB14E /* PatternView.swift */; };
 		92A9DD381C6D48DA002CB14E /* LaunchPatternView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92A9DD371C6D48DA002CB14E /* LaunchPatternView.swift */; };
+		92A9DD3A1C6D5961002CB14E /* flipPhoneLogo3.png in Resources */ = {isa = PBXBuildFile; fileRef = 92A9DD391C6D5961002CB14E /* flipPhoneLogo3.png */; };
+		92A9DD3C1C6D5A34002CB14E /* IntroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92A9DD3B1C6D5A34002CB14E /* IntroViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -45,6 +47,8 @@
 		92A9DD0B1C6CE606002CB14E /* Mission Gothic Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Mission Gothic Light.otf"; sourceTree = "<group>"; };
 		92A9DD331C6D3149002CB14E /* PatternView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PatternView.swift; sourceTree = "<group>"; };
 		92A9DD371C6D48DA002CB14E /* LaunchPatternView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LaunchPatternView.swift; sourceTree = "<group>"; };
+		92A9DD391C6D5961002CB14E /* flipPhoneLogo3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = flipPhoneLogo3.png; sourceTree = "<group>"; };
+		92A9DD3B1C6D5A34002CB14E /* IntroViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntroViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,6 +86,7 @@
 				923578931C6945AD00760BB9 /* AppDelegate.swift */,
 				923578951C6945AD00760BB9 /* ViewController.swift */,
 				923578A91C6A506300760BB9 /* LaunchModeViewController.swift */,
+				92A9DD3B1C6D5A34002CB14E /* IntroViewController.swift */,
 				923578A51C694C4700760BB9 /* RotationsModel.swift */,
 				92A9DD331C6D3149002CB14E /* PatternView.swift */,
 				92A9DD371C6D48DA002CB14E /* LaunchPatternView.swift */,
@@ -96,6 +101,7 @@
 		92A9DD0C1C6CE60C002CB14E /* images */ = {
 			isa = PBXGroup;
 			children = (
+				92A9DD391C6D5961002CB14E /* flipPhoneLogo3.png */,
 				923578D91C6BC8AC00760BB9 /* flipPhoneLogo2.png */,
 				923578D51C6BBDF900760BB9 /* flipMode.png */,
 				923578D61C6BBDF900760BB9 /* launchMode.png */,
@@ -175,6 +181,7 @@
 			files = (
 				92A9DD121C6CEB9B002CB14E /* Info.plist in Resources */,
 				923578D71C6BBDF900760BB9 /* flipMode.png in Resources */,
+				92A9DD3A1C6D5961002CB14E /* flipPhoneLogo3.png in Resources */,
 				923578D81C6BBDF900760BB9 /* launchMode.png in Resources */,
 				923578D01C6A9D5F00760BB9 /* LaunchModeIcon.png in Resources */,
 				9235789E1C6945AD00760BB9 /* LaunchScreen.storyboard in Resources */,
@@ -196,6 +203,7 @@
 			files = (
 				923578AA1C6A506300760BB9 /* LaunchModeViewController.swift in Sources */,
 				923578961C6945AD00760BB9 /* ViewController.swift in Sources */,
+				92A9DD3C1C6D5A34002CB14E /* IntroViewController.swift in Sources */,
 				923578941C6945AD00760BB9 /* AppDelegate.swift in Sources */,
 				923578A61C694C4700760BB9 /* RotationsModel.swift in Sources */,
 				92A9DD381C6D48DA002CB14E /* LaunchPatternView.swift in Sources */,
