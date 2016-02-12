@@ -57,7 +57,6 @@ class ViewController: UIViewController {
         rollsLabel.text = "\(model.rollCount)"
         spinsLabel.text = "\(model.yawCount)"
         flipsLabel.text = "\(model.pitchCount)"
-    //    scoreLabel.text = "\(flipModeScore)"
     }
     
     func prepareCoreMotion() {
@@ -98,11 +97,9 @@ class ViewController: UIViewController {
         
         if totalAcceleration > 4 {
             didStartThrow = true
-            print("throwing!")
         }
         if didStartThrow && totalAcceleration < 1 {
             didStartThrow = false
-            print("stopped throw")
             calculateScore()
         }
     }

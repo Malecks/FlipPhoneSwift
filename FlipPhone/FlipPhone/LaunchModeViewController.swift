@@ -127,10 +127,30 @@ class LaunchModeViewController: UIViewController {
     
     func stopLaunchMode () {
         if launchModeRunning {
-            distanceFallenLabel.text = "\(distanceFallen)m"
-            distanceFallen = 0
-            startTimeOfFreefall = 0
-            endTimeOfFreefall = 0
+            
+            UIView.animateWithDuration(0.35, delay: 0.0, options: UIViewAnimationOptions.CurveEaseOut, animations: {
+                self.distanceFallenLabel.alpha = 0.0
+                }, completion: {
+                    (finished: Bool) -> Void in
+                    
+                    //Once the label is completely invisible, set the text and fade it back in
+                    self.distanceFallenLabel.text = "\(self.distanceFallen)m"
+                    
+                    // Fade in
+                    UIView.animateWithDuration(0.65, delay: 0.0, options: UIViewAnimationOptions.CurveEaseIn, animations: {
+                        self.distanceFallenLabel.alpha = 1.0
+                        }, completion: {(finished: Bool) -> Void in
+                            self.distanceFallen = 0
+                            self.startTimeOfFreefall = 0
+                            self.endTimeOfFreefall = 0
+                    })
+            })
+
+//            distanceFallenLabel.text = "\(distanceFallen)m"
+//            distanceFallen = 0
+//            startTimeOfFreefall = 0
+//            endTimeOfFreefall = 0
+            
         }
         launchModeRunning = false
     }
@@ -145,7 +165,6 @@ class LaunchModeViewController: UIViewController {
     
     func compareTimes () -> CFTimeInterval {
         let timeInFreefall: CFTimeInterval = endTimeOfFreefall - startTimeOfFreefall
-        print("Time In Freefall: \(timeInFreefall)")
         return timeInFreefall
     }
     

@@ -59,6 +59,11 @@ class PatternView: UIView {
         
         UIColor(patternImage: image).setFill()
         CGContextFillRect(context, rect)
+
+//        let gradient:CAGradientLayer = CAGradientLayer()
+//        gradient.frame.size = self.frame.size
+//        gradient.colors = [backgroundBlue.CGColor, UIColor.whiteColor().colorWithAlphaComponent(0).CGColor] //Or any colors
+//        self.layer.addSublayer(gradient)
     }
 
 
