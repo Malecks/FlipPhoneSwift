@@ -38,19 +38,19 @@ class PatternView: UIView {
         blueStrokeColour.setStroke()
         circlePath.stroke()
         
-        let circlePath2 = UIBezierPath(ovalInRect: CGRectMake( 35, 35, patternSize, patternSize))
+        let circlePath2 = UIBezierPath(ovalInRect: CGRectMake( patternSize/2, patternSize/2, patternSize, patternSize))
         blueStrokeColour.setStroke()
         circlePath2.stroke()
         
-        let circlePath3 = UIBezierPath(ovalInRect: CGRectMake( -35, 35, patternSize, patternSize))
+        let circlePath3 = UIBezierPath(ovalInRect: CGRectMake( -patternSize/2, patternSize/2, patternSize, patternSize))
         blueStrokeColour.setStroke()
         circlePath3.stroke()
         
-        let circlePath4 = UIBezierPath(ovalInRect: CGRectMake( 35, -35, patternSize, patternSize))
+        let circlePath4 = UIBezierPath(ovalInRect: CGRectMake( patternSize/2, -patternSize/2, patternSize, patternSize))
         blueStrokeColour.setStroke()
         circlePath4.stroke()
         
-        let circlePath5 = UIBezierPath(ovalInRect: CGRectMake( -35, -35, patternSize, patternSize))
+        let circlePath5 = UIBezierPath(ovalInRect: CGRectMake( -patternSize/2, -patternSize/2, patternSize, patternSize))
         blueStrokeColour.setStroke()
         circlePath5.stroke()
         
