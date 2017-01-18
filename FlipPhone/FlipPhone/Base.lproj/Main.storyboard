@@ -1,29 +1,23 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="wS9-GX-i5D">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="wS9-GX-i5D">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
-        <mutableArray key="Mission Gothic Bold.otf">
+        <array key="Mission Gothic Bold.otf">
             <string>MissionGothic-Bold</string>
-            <string>MissionGothic-Bold</string>
-        </mutableArray>
-        <mutableArray key="Mission Gothic Light.otf">
+        </array>
+        <array key="Mission Gothic Light.otf">
             <string>MissionGothic-Light</string>
-            <string>MissionGothic-Light</string>
-            <string>MissionGothic-Light</string>
-            <string>MissionGothic-Light</string>
-            <string>MissionGothic-Light</string>
-            <string>MissionGothic-Light</string>
-            <string>MissionGothic-Light</string>
-            <string>MissionGothic-Light</string>
-            <string>MissionGothic-Light</string>
-            <string>MissionGothic-Light</string>
-        </mutableArray>
+        </array>
     </customFonts>
     <scenes>
         <!--View Controller-->
@@ -41,44 +35,44 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Flips" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6jh-1W-47S">
                                 <rect key="frame" x="107" y="261" width="31" height="23"/>
                                 <fontDescription key="fontDescription" name="MissionGothic-Light" family="Mission Gothic" pointSize="17"/>
-                                <color key="textColor" red="1" green="1" blue="1" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Spins" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="suK-tc-zur">
                                 <rect key="frame" x="169" y="261" width="37" height="23"/>
                                 <fontDescription key="fontDescription" name="MissionGothic-Light" family="Mission Gothic" pointSize="17"/>
-                                <color key="textColor" red="1" green="1" blue="1" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rolls" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tGB-CC-que">
                                 <rect key="frame" x="235" y="261" width="32" height="23"/>
                                 <fontDescription key="fontDescription" name="MissionGothic-Light" family="Mission Gothic" pointSize="17"/>
-                                <color key="textColor" red="1" green="1" blue="1" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jh0-Mo-RwX">
                                 <rect key="frame" x="178" y="284" width="20" height="53"/>
                                 <fontDescription key="fontDescription" name="MissionGothic-Light" family="Mission Gothic" pointSize="40"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NSt-g3-1gG">
                                 <rect key="frame" x="242" y="284" width="20" height="53"/>
                                 <fontDescription key="fontDescription" name="MissionGothic-Light" family="Mission Gothic" pointSize="40"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lf0-iM-duJ">
                                 <rect key="frame" x="113" y="284" width="20" height="53"/>
                                 <fontDescription key="fontDescription" name="MissionGothic-Light" family="Mission Gothic" pointSize="40"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wT8-W5-OMR">
                                 <rect key="frame" x="157" y="592" width="62" height="45"/>
                                 <fontDescription key="fontDescription" name="MissionGothic-Light" family="Mission Gothic" pointSize="25"/>
                                 <state key="normal" title="RESET">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
                                     <action selector="resetButton" destination="BYZ-38-t0r" eventType="touchUpInside" id="SvA-JT-UY7"/>
@@ -91,7 +85,7 @@
                                     <constraint firstAttribute="width" secondItem="ctp-YT-Ju6" secondAttribute="height" multiplier="1:1" id="leZ-9N-yF2"/>
                                 </constraints>
                                 <state key="normal" title="Button" image="LaunchModeIcon.png">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
                                     <segue destination="qjq-4g-ra5" kind="presentation" modalTransitionStyle="flipHorizontal" id="dJc-b8-56G"/>
@@ -100,7 +94,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Flip!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wGO-Sf-5c9">
                                 <rect key="frame" x="31" y="148" width="313" height="105"/>
                                 <fontDescription key="fontDescription" name="MissionGothic-Bold" family="Mission Gothic" pointSize="80"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="flipMode.png" translatesAutoresizingMaskIntoConstraints="NO" id="q0q-zQ-Mbs">
@@ -111,7 +105,7 @@
                                 </constraints>
                             </imageView>
                         </subviews>
-                        <color key="backgroundColor" red="0.056204249732885903" green="0.31470732173020133" blue="0.87768641435436234" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.056204249732885903" green="0.31470732173020133" blue="0.87768641435436234" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="wGO-Sf-5c9" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="9Ts-Si-bmC"/>
                             <constraint firstItem="suK-tc-zur" firstAttribute="top" secondItem="wGO-Sf-5c9" secondAttribute="bottom" constant="8" id="AXn-N4-b18"/>
@@ -138,7 +132,6 @@
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" systemItem="more" id="6fp-WX-9JH"/>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
                         <outlet property="flipsLabel" destination="Lf0-iM-duJ" id="BP4-MS-aIA"/>
                         <outlet property="rollsLabel" destination="NSt-g3-1gG" id="Cau-cH-tAl"/>
@@ -169,7 +162,7 @@
                                     <constraint firstAttribute="width" secondItem="kGK-6H-XMu" secondAttribute="height" multiplier="1:1" id="Yam-Rx-ZVi"/>
                                 </constraints>
                                 <state key="normal" title="Back" image="flipModeIcon.png">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
                                     <action selector="flipModeButton:" destination="qjq-4g-ra5" eventType="touchUpInside" id="dwc-0t-MEG"/>
@@ -186,7 +179,7 @@
                                 <rect key="frame" x="159" y="592" width="58" height="45"/>
                                 <fontDescription key="fontDescription" name="MissionGothic-Light" family="Mission Gothic" pointSize="25"/>
                                 <state key="normal" title="START">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
                                     <action selector="startButton:" destination="qjq-4g-ra5" eventType="touchUpInside" id="O9u-p1-QJK"/>
@@ -198,24 +191,24 @@
                                     <constraint firstAttribute="width" constant="119" id="OaA-B0-z3X"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="MissionGothic-Light" family="Mission Gothic" pointSize="40"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Launch!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uc7-ME-IlJ" userLabel="distanceFallenLabel">
                                 <rect key="frame" x="31" y="148" width="313" height="105"/>
                                 <fontDescription key="fontDescription" name="MissionGothic-Bold" family="Mission Gothic" pointSize="80"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Time Left" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dyW-k8-agI">
                                 <rect key="frame" x="157" y="284" width="62" height="23"/>
-                                <color key="tintColor" red="0.8980392157" green="0.0078431372550000003" blue="0.10980392160000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="tintColor" red="0.8980392157" green="0.0078431372550000003" blue="0.10980392160000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" name="MissionGothic-Light" family="Mission Gothic" pointSize="17"/>
-                                <color key="textColor" red="1" green="1" blue="1" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" red="0.89803921568627454" green="0.054901960784313725" blue="0.15686274509803921" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.89803921568627454" green="0.054901960784313725" blue="0.15686274509803921" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="kGK-6H-XMu" firstAttribute="top" secondItem="gXe-kk-nzN" secondAttribute="bottom" constant="20" id="1ue-Y2-yIo"/>
                             <constraint firstItem="nO9-9p-ty6" firstAttribute="centerX" secondItem="TBr-XF-WeW" secondAttribute="centerX" id="ChH-0s-WtR"/>
@@ -242,7 +235,6 @@
                         </variation>
                     </view>
                     <tabBarItem key="tabBarItem" systemItem="favorites" id="2zE-bt-aKR"/>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
                         <outlet property="distanceFallenLabel" destination="uc7-ME-IlJ" id="FFW-ze-Erf"/>
                         <outlet property="timeLabel" destination="nO9-9p-ty6" id="J6p-Im-JfI"/>
@@ -250,7 +242,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5Lg-Oj-PlV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1387.5" y="101.5"/>
+            <point key="canvasLocation" x="1618" y="101"/>
         </scene>
         <!--Intro View Controller-->
         <scene sceneID="ldT-6Z-oqQ">
@@ -265,8 +257,8 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tjQ-KI-ODa" customClass="PatternView" customModule="FlipPhone" customModuleProvider="target">
-                                <rect key="frame" x="-1" y="0.0" width="376" height="667"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <rect key="frame" x="-0.5" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="flipMode.png" translatesAutoresizingMaskIntoConstraints="NO" id="g5E-4Z-SBv">
                                 <rect key="frame" x="62" y="209" width="250" height="250"/>
@@ -276,7 +268,7 @@
                                 </constraints>
                             </imageView>
                         </subviews>
-                        <color key="backgroundColor" red="0.086274509799999996" green="0.45098039220000002" blue="0.88235294119999996" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.086274509799999996" green="0.45098039220000002" blue="0.88235294119999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="g5E-4Z-SBv" firstAttribute="centerY" secondItem="JA5-F3-idL" secondAttribute="centerY" id="7HH-4Q-Edc"/>
                             <constraint firstItem="tjQ-KI-ODa" firstAttribute="centerX" secondItem="JA5-F3-idL" secondAttribute="centerX" id="R9V-w4-8kK"/>
@@ -286,7 +278,6 @@
                             <constraint firstItem="tjQ-KI-ODa" firstAttribute="height" secondItem="JA5-F3-idL" secondAttribute="height" id="qxb-Qr-szj"/>
                         </constraints>
                     </view>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
                         <outlet property="logoView" destination="g5E-4Z-SBv" id="qU9-xf-JN9"/>
                         <outlet property="patternView" destination="tjQ-KI-ODa" id="jMz-mO-KgX"/>

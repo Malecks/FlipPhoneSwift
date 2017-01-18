@@ -9,26 +9,27 @@
 import UIKit
 import CoreMotion
 
-class ViewController: UIViewController {
+final class ViewController: UIViewController {
+    
     // MARK: Variables
-    let motion = CMMotionManager()
-    let model = RotationsModel()
+    fileprivate let motion = CMMotionManager()
+    fileprivate let model = RotationsModel()
     
-    let topPatternView: PatternView = PatternView()
+    fileprivate let topPatternView: PatternView = PatternView()
     
-    var flipModeScore = 0
-    var didStartThrow: Bool = false
-    var flipModeRunning: Bool = false
+    fileprivate var flipModeScore = 0
+    fileprivate var didStartThrow: Bool = false
+    fileprivate var flipModeRunning: Bool = false
     
-    @IBOutlet var spinsLabel: UILabel!
-    @IBOutlet var flipsLabel: UILabel!
-    @IBOutlet var rollsLabel: UILabel!
-    @IBOutlet var scoreLabel: UILabel!
+    @IBOutlet fileprivate var spinsLabel: UILabel!
+    @IBOutlet fileprivate var flipsLabel: UILabel!
+    @IBOutlet fileprivate var rollsLabel: UILabel!
+    @IBOutlet fileprivate var scoreLabel: UILabel!
     
     // MARK: View
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        topPatternView.frame = CGRectMake(0, 0, self.view.frame.width, self.view.frame.height)
+        topPatternView.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height)
         view .addSubview(topPatternView)
         view .addSubview(topPatternView)
         prepareCoreMotion()
@@ -41,15 +42,10 @@ class ViewController: UIViewController {
         fadeOutTopPattern()
     }
     
-    override func viewDidDisappear(animated: Bool) {
+    override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
         motion.stopDeviceMotionUpdates()
         motion.stopAccelerometerUpdates()
-    }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     // MARK: Preparation
@@ -60,9 +56,9 @@ class ViewController: UIViewController {
     }
     
     func prepareCoreMotion() {
-        if motion.deviceMotionAvailable {
+        if motion.isDeviceMotionAvailable {
             motion.deviceMotionUpdateInterval = 0.01
-            motion.startDeviceMotionUpdatesUsingReferenceFrame(CMAttitudeReferenceFrame.XArbitraryZVertical)
+            motion.startDeviceMotionUpdates(using: CMAttitudeReferenceFrame.xArbitraryZVertical)
             
             motion.accelerometerUpdateInterval = 0.01
             motion.startAccelerometerUpdates()
@@ -71,25 +67,34 @@ class ViewController: UIViewController {
     
     // MARK: Timer and related functions
     func startTimer() {
-        NSTimer.scheduledTimerWithTimeInterval(0.01, target: self, selector: Selector("updateMotion"), userInfo: nil, repeats: true)
-        NSTimer.scheduledTimerWithTimeInterval(0.01, target: self, selector: Selector("updateAcceleration"), userInfo: nil, repeats: true)
+        Timer.scheduledTimer(
+            timeInterval: 0.01,
+            target: self,
+            selector: #selector(ViewController.updateMotion),
+            userInfo: nil,
+            repeats: true
+        )
+        
+        Timer.scheduledTimer(
+            timeInterval: 0.01,
+            target: self,
+            selector: #selector(ViewController.updateAcceleration),
+            userInfo: nil,
+            repeats: true
+        )
     }
     
     func updateMotion() {
-        if motion.deviceMotion == nil {
-            return
-        }
-        model.didRoll((motion.deviceMotion?.attitude)!)
-        model.didSpin((motion.deviceMotion?.attitude)!)
-        model.didFlip((motion.deviceMotion?.attitude)!)
+        guard motion.deviceMotion != nil else { return }
         
+        model.checkRoll((motion.deviceMotion?.attitude)!)
+        model.checkSpin((motion.deviceMotion?.attitude)!)
+        model.checkFlip((motion.deviceMotion?.attitude)!)
     }
     
     func updateAcceleration() {
-        if motion.accelerometerAvailable == false {
-            return
-        }
-        //        print("xyz:\(motion.accelerometerData?.acceleration.y, motion.accelerometerData?.acceleration.x, motion.accelerometerData?.acceleration.z)")
+        guard motion.isAccelerometerAvailable else { return }
+
         let aX = motion.accelerometerData?.acceleration.x
         let aY = motion.accelerometerData?.acceleration.y
         let aZ = motion.accelerometerData?.acceleration.z
@@ -113,16 +118,12 @@ class ViewController: UIViewController {
         
         flipModeScore = ((model.rollCount * 70) + (model.yawCount * 115) + (model.pitchCount * 175))
         if flipModeScore > 0 {
-            UIView.animateWithDuration(0.35, delay: 0.0, options: UIViewAnimationOptions.CurveEaseOut, animations: {
+            UIView.animate(withDuration: 0.35, delay: 0.0, options: UIViewAnimationOptions.curveEaseOut, animations: {
                 self.scoreLabel.alpha = 0.0
                 }, completion: {
                     (finished: Bool) -> Void in
-                    
-                    //Once the label is completely invisible, set the text and fade it back in
                     self.scoreLabel.text = "\(self.flipModeScore)"
-                    
-                    // Fade in
-                    UIView.animateWithDuration(0.65, delay: 0.0, options: UIViewAnimationOptions.CurveEaseIn, animations: {
+                    UIView.animate(withDuration: 0.65, delay: 0.0, options: UIViewAnimationOptions.curveEaseIn, animations: {
                         self.scoreLabel.alpha = 1.0
                         }, completion: {(finished: Bool) -> Void in
                             self.model.rollCount = 0
@@ -148,7 +149,7 @@ class ViewController: UIViewController {
     
     // MARK: Animation
     func fadeOutTopPattern () {
-        UIView.animateWithDuration(1.5, delay: 1.0, options: UIViewAnimationOptions.CurveEaseOut, animations: { self.topPatternView.alpha = 0.0 }, completion: nil)}
+        UIView.animate(withDuration: 1.5, delay: 1.0, options: UIViewAnimationOptions.curveEaseOut, animations: { self.topPatternView.alpha = 0.0 }, completion: nil)}
 }
 
 

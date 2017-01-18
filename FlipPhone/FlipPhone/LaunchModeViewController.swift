@@ -9,24 +9,24 @@
 import UIKit
 import CoreMotion
 
-class LaunchModeViewController: UIViewController {
+final class LaunchModeViewController: UIViewController {
     // MARK: Variables
-    @IBOutlet var timeLabel: UILabel!
-    @IBOutlet var distanceFallenLabel: UILabel!
+    @IBOutlet fileprivate var timeLabel: UILabel!
+    @IBOutlet fileprivate var distanceFallenLabel: UILabel!
     
-    var launchModeRunning: Bool = false
-    var startTime : CFAbsoluteTime!
-    var motion = CMMotionManager()
-    var didStartThrow: Bool = false
-    var startTimeOfFreefall: CFAbsoluteTime = 0.0
-    var endTimeOfFreefall: CFAbsoluteTime = 0.0
-    var timeInFreefall: Float = 0
-    var bestTimeInFreefall: Float = 0
-    var distanceFallen: Float = 0
+    fileprivate var launchModeRunning: Bool = false
+    fileprivate var startTime : CFAbsoluteTime!
+    fileprivate var motion = CMMotionManager()
+    fileprivate var didStartThrow: Bool = false
+    fileprivate var startTimeOfFreefall: CFAbsoluteTime = 0.0
+    fileprivate var endTimeOfFreefall: CFAbsoluteTime = 0.0
+    fileprivate var timeInFreefall: Float = 0
+    fileprivate var bestTimeInFreefall: Float = 0
+    fileprivate var distanceFallen: Float = 0
     
     
     // MARK: View
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         prepareCoreMotion()
     }
@@ -35,23 +35,18 @@ class LaunchModeViewController: UIViewController {
         super.viewDidLoad()
     }
     
-    override func viewDidDisappear(animated: Bool) {
+    override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
         motion.stopDeviceMotionUpdates()
         motion.stopAccelerometerUpdates()
     }
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
     // MARK: Preparation
-    func prepareCoreMotion() {
-        if motion.deviceMotionAvailable {
+    fileprivate func prepareCoreMotion() {
+        if motion.isDeviceMotionAvailable {
             motion.deviceMotionUpdateInterval = 0.01
-            motion.startDeviceMotionUpdatesUsingReferenceFrame(CMAttitudeReferenceFrame.XArbitraryZVertical)
-            if motion.accelerometerAvailable {
+            motion.startDeviceMotionUpdates(using: CMAttitudeReferenceFrame.xArbitraryZVertical)
+            if motion.isAccelerometerAvailable {
                 motion.accelerometerUpdateInterval = 0.01
                 motion.startAccelerometerUpdates()
             }
@@ -59,41 +54,35 @@ class LaunchModeViewController: UIViewController {
     }
     
     // MARK: Timer and updates
-    func startTimer() {
-        NSTimer.scheduledTimerWithTimeInterval(0.01, target: self, selector: Selector("updateGravity"), userInfo: nil, repeats: true)
+    fileprivate func startTimer() {
+        Timer.scheduledTimer(timeInterval: 0.01, target: self, selector: #selector(LaunchModeViewController.updateGravity), userInfo: nil, repeats: true)
         //        NSTimer.scheduledTimerWithTimeInterval(0.01, target: self, selector: Selector("updateAcceleration"), userInfo: nil, repeats: true)
     }
     
     
-    func updateGravity() {
-        if motion.deviceMotionActive == false || launchModeRunning == false {
+    @objc fileprivate func updateGravity() {
+        if motion.isDeviceMotionActive == false || launchModeRunning == false {
             return
         }
-        // if freefall
+        // check if gravity is close enough to 0 to be considered freefall
         let gX = motion.accelerometerData?.acceleration.x
         let gY = motion.accelerometerData?.acceleration.y
         let gZ = motion.accelerometerData?.acceleration.z
         let totalGravity = sqrt((gX! * gX!) + (gY! * gY!) + (gZ! * gZ!))
-//        print("GGG: \(totalGravity)")
         
-        if totalGravity < 0.2 && totalGravity > -0.2 { // if gravity.z is around 0 (+ or - .15)
+        if totalGravity < 0.2 && totalGravity > -0.2 {
             
             // get time at start of freefall
-            if didStartThrow == false {
-                if startTimeOfFreefall == 0 {
-                    startTimeOfFreefall = CFAbsoluteTimeGetCurrent()
-                    print("START of freefall:\(startTimeOfFreefall)")
-                    didStartThrow = true
-                }
+            if !didStartThrow, startTimeOfFreefall == 0 {
+                startTimeOfFreefall = CFAbsoluteTimeGetCurrent()
+                didStartThrow = true
             }
-//            print("FREEFALL VALUE: \(motion.deviceMotion?.gravity.z)")
         }
         
         // get end time when out of freefall
         if didStartThrow && totalGravity > 0.3 { // if gravity.z leaves freefall (resting is around -1)
             if endTimeOfFreefall == 0 {
                 endTimeOfFreefall = CFAbsoluteTimeGetCurrent()
-                print("END of freefall: \(endTimeOfFreefall)")
                 let timeDifference: CFTimeInterval = compareTimes()
                 let newDistance = calcDistance(Float(timeDifference))
                 if newDistance > distanceFallen {
@@ -105,77 +94,66 @@ class LaunchModeViewController: UIViewController {
         
         // update time label
         let remainingTime = round((3.0 - (CFAbsoluteTimeGetCurrent() - startTime)) * 100) / 100
-        if remainingTime > 0 {
-            timeLabel.text = "\(remainingTime)"
-        } else {
-            timeLabel.text = "0.0"
-        }
+        timeLabel.text = remainingTime > 0 ? "\(remainingTime)" : "0.0"
     }
     
     // MARK: Handlers
-    @IBAction func flipModeButton(sender: UIButton) {
-        dismissViewControllerAnimated(true, completion: nil)
+    @IBAction fileprivate func flipModeButton(_ sender: UIButton) {
+        dismiss(animated: true, completion: nil)
     }
     
-    @IBAction func startButton(sender: UIButton) {
-        // start 3 second timer
+    @IBAction fileprivate func startButton(_ sender: UIButton) {
         startTimer()
         launchModeRunning = true
-        NSTimer.scheduledTimerWithTimeInterval(3.0, target: self, selector: "stopLaunchMode", userInfo: nil, repeats: false)
+        Timer.scheduledTimer(
+            timeInterval: 3.0,
+            target: self,
+            selector: #selector(LaunchModeViewController.stopLaunchMode),
+            userInfo: nil,
+            repeats: false
+        )
         startTime = CFAbsoluteTimeGetCurrent()
     }
     
-    func stopLaunchMode () {
+    @objc fileprivate func stopLaunchMode () {
         if launchModeRunning {
-            
-            UIView.animateWithDuration(0.35, delay: 0.0, options: UIViewAnimationOptions.CurveEaseOut, animations: {
-                self.distanceFallenLabel.alpha = 0.0
-                }, completion: {
-                    (finished: Bool) -> Void in
-                    
-                    //Once the label is completely invisible, set the text and fade it back in
+            UIView.animate(
+                withDuration: 0.35,
+                delay: 0.0,
+                options: UIViewAnimationOptions.curveEaseOut,
+                animations: {
+                    self.distanceFallenLabel.alpha = 0.0
+                },
+                completion: { (finished: Bool) -> Void in
                     self.distanceFallenLabel.text = "\(self.distanceFallen)m"
-                    
-                    // Fade in
-                    UIView.animateWithDuration(0.65, delay: 0.0, options: UIViewAnimationOptions.CurveEaseIn, animations: {
-                        self.distanceFallenLabel.alpha = 1.0
-                        }, completion: {(finished: Bool) -> Void in
+                    UIView.animate(
+                        withDuration: 0.65,
+                        delay: 0.0,
+                        options: UIViewAnimationOptions.curveEaseIn,
+                        animations: {
+                            self.distanceFallenLabel.alpha = 1.0
+                        },
+                        completion: {(finished: Bool) -> Void in
                             self.distanceFallen = 0
                             self.startTimeOfFreefall = 0
                             self.endTimeOfFreefall = 0
-                    })
-            })
-
-//            distanceFallenLabel.text = "\(distanceFallen)m"
-//            distanceFallen = 0
-//            startTimeOfFreefall = 0
-//            endTimeOfFreefall = 0
-            
+                        })
+                })
         }
+        
         launchModeRunning = false
     }
     
     // MARK: Calculations
-    func calcDistance (timeInSeconds: Float) -> Float{
+    fileprivate func calcDistance (_ timeInSeconds: Float) -> Float{
         let acceleration: Float = 9.81
         let distanceFallen = (acceleration / 2) * (timeInSeconds * timeInSeconds)
         let roundedDistanceFallenInMeters = round((distanceFallen / 4) * 100) / 100
         return roundedDistanceFallenInMeters
     }
     
-    func compareTimes () -> CFTimeInterval {
+    fileprivate func compareTimes () -> CFTimeInterval {
         let timeInFreefall: CFTimeInterval = endTimeOfFreefall - startTimeOfFreefall
         return timeInFreefall
     }
-    
-    /*
-    // MARK: - Navigation
-    
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-    // Get the new view controller using segue.destinationViewController.
-    // Pass the selected object to the new view controller.
-    }
-    */
-    
 }

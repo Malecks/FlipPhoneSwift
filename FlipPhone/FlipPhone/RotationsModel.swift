@@ -9,37 +9,23 @@
 import UIKit
 import CoreMotion
 
-class RotationsModel: NSObject {
+final class RotationsModel: NSObject {
+    
+    fileprivate var rollStep1 : Bool = false
+    fileprivate var rollStep2 : Bool = false
+    fileprivate var rollStep3 : Bool = false
+    fileprivate var yawStep1 : Bool = false
+    fileprivate var yawStep2 : Bool = false
+    fileprivate var yawStep3 : Bool = false
+    fileprivate var pitchStep1 : Bool = false
+    fileprivate var pitchStep2 : Bool = false
+    fileprivate var pitchStep3 : Bool = false
     
     var rollCount = 0
     var yawCount = 0
     var pitchCount = 0
     
-    var rollStep1 : Bool
-    var rollStep2 : Bool
-    var rollStep3 : Bool
-    var yawStep1 : Bool
-    var yawStep2 : Bool
-    var yawStep3 : Bool
-    var pitchStep1 : Bool
-    var pitchStep2 : Bool
-    var pitchStep3 : Bool
-    
-    override init() {
-        rollStep1 = false
-        rollStep2 = false
-        rollStep3 = false
-        yawStep1 = false
-        yawStep2 = false
-        yawStep3 = false
-        pitchStep1 = false
-        pitchStep2 = false
-        pitchStep3 = false
-    }
-    
-    // calc rolls
-    func didRoll (attitude: CMAttitude) -> Bool {
-        
+    func checkRoll (_ attitude: CMAttitude) {
         if attitude.roll < 0 && attitude.roll > -1.5 {
             rollStep1 = true
         }
@@ -54,16 +40,10 @@ class RotationsModel: NSObject {
             rollStep1 = false
             rollStep2 = false
             rollStep3 = false
-            print("Roll Count: \(rollCount)")
-            return true
-        } else {
-            return false
         }
     }
     
-    // calc spins
-    func didSpin (attitude: CMAttitude) -> Bool {
-        
+    func checkSpin (_ attitude: CMAttitude) {
         if attitude.yaw < 0 && attitude.yaw > -1.5 {
             yawStep1 = true
         }
@@ -78,15 +58,10 @@ class RotationsModel: NSObject {
             yawStep1 = false
             yawStep2 = false
             yawStep3 = false
-            print("Spin Count: \(yawCount)")
-            return true
-        } else {
-            return false
         }
     }
     
-    // calc flips
-    func didFlip (attitude: CMAttitude) -> Bool {
+    func checkFlip (_ attitude: CMAttitude) {
         if attitude.pitch < 0 && attitude.pitch > -0.75 {
             pitchStep1 = true
         }
@@ -101,10 +76,6 @@ class RotationsModel: NSObject {
             pitchStep1 = false
             pitchStep2 = false
             pitchStep3 = false
-            print("Flip Count: \(pitchCount)")
-            return true
-        } else {
-            return false
         }
     }
 }

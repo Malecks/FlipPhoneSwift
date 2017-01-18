@@ -10,82 +10,80 @@ import UIKit
 
 @IBDesignable
 
-class LaunchPatternView: UIView {
-    let patternSize: CGFloat = 70
-    let backgroundRed: UIColor = UIColor(red: 229/255.0, green: 14/255.0, blue: 40/255.0, alpha: 1)
-    let redStrokeColour: UIColor = UIColor(red: 215/255.0, green: 14/255.0, blue: 40/255.0, alpha: 1)
-    
-    // Only override drawRect: if you perform custom drawing.
-    // An empty implementation adversely affects performance during animation.
-    override func drawRect(rect: CGRect) {
-        let context: CGContextRef = UIGraphicsGetCurrentContext()!
-        CGContextSetFillColorWithColor(context, backgroundRed.CGColor)
-        CGContextFillRect(context, bounds)
+final class LaunchPatternView: UIView {
+    static let size: CGFloat = 70
+    fileprivate let backgroundRed: UIColor = UIColor(red: 229/255.0, green: 14/255.0, blue: 40/255.0, alpha: 1)
+    fileprivate let redStrokeColour: UIColor = UIColor(red: 215/255.0, green: 14/255.0, blue: 40/255.0, alpha: 1)
+
+    override func draw(_ rect: CGRect) {
+        let context: CGContext = UIGraphicsGetCurrentContext()!
+        context.setFillColor(backgroundRed.cgColor)
+        context.fill(bounds)
         
-        ///////
-        let drawSize = CGSize(width: patternSize, height: patternSize)
+        let drawSize = CGSize(width: LaunchPatternView.size, height: LaunchPatternView.size)
         UIGraphicsBeginImageContextWithOptions(drawSize, true, 0.0)
         let drawingContext = UIGraphicsGetCurrentContext()
         
         backgroundRed.setFill()
-        CGContextFillRect(drawingContext,
-            CGRectMake(0, 0, drawSize.width, drawSize.height))
+        drawingContext?.fill(CGRect(x: 0, y: 0, width: drawSize.width, height: drawSize.height))
         
-        // line
         let linePath = UIBezierPath()
+        linePath.move(to: (CGPoint(x: LaunchPatternView.size, y: 0)))
+        linePath.addCurve(
+            to: (CGPoint(x: 0, y: LaunchPatternView.size)),
+            controlPoint1: (CGPoint(x: LaunchPatternView.size, y: LaunchPatternView.size)),
+            controlPoint2: (CGPoint(x: (LaunchPatternView.size / 2), y: (LaunchPatternView.size / 2)))
+        )
         
-        // 45 degree lines
-//        linePath.moveToPoint((CGPoint(x: patternSize, y: 0)))
-//        linePath.addLineToPoint((CGPoint(x: 0, y: patternSize)))
-        
-//        linePath.moveToPoint((CGPoint(x: 50, y: 0)))
-//        linePath.addLineToPoint((CGPoint(x: 0, y: 50)))
-//        
-//        linePath.moveToPoint((CGPoint(x: 30, y: 0)))
-//        linePath.addLineToPoint((CGPoint(x: 0, y: 30)))
-//        
-//        linePath.moveToPoint((CGPoint(x: 10, y: 0)))
-//        linePath.addLineToPoint((CGPoint(x: 0, y: 10)))
-//        
-//        linePath.moveToPoint((CGPoint(x: 70, y: 20)))
-//        linePath.addLineToPoint((CGPoint(x: 20, y: 70)))
-//        
-//        linePath.moveToPoint((CGPoint(x: 70, y: 40)))
-//        linePath.addLineToPoint((CGPoint(x: 40, y: 70)))
-
-        // curvy lines
-        linePath.moveToPoint((CGPoint(x: patternSize, y: 0)))
-        linePath.addCurveToPoint((CGPoint(x: 0, y: patternSize)), controlPoint1: (CGPoint(x: patternSize, y: patternSize)), controlPoint2: (CGPoint(x: (patternSize / 2), y: (patternSize / 2))))
-        
-        linePath.moveToPoint((CGPoint(x: patternSize, y: 0)))
-        linePath.addCurveToPoint((CGPoint(x: 0, y: patternSize)), controlPoint1: (CGPoint(x: (patternSize / 2), y: (patternSize / 2))), controlPoint2: (CGPoint(x: 0, y: 0)))
-
+        linePath.move(to: (CGPoint(x: LaunchPatternView.size, y: 0)))
+        linePath.addCurve(
+            to: (CGPoint(x: 0, y: LaunchPatternView.size)),
+            controlPoint1: (CGPoint(x: (LaunchPatternView.size / 2), y: (LaunchPatternView.size / 2))),
+            controlPoint2: (CGPoint(x: 0, y: 0))
+        )
         redStrokeColour.setStroke()
         linePath.stroke()
         
-        
-        let circlePath2 = UIBezierPath(ovalInRect: CGRectMake( 35, 35, patternSize, patternSize))
+        let circlePath2 = UIBezierPath(ovalIn: CGRect(
+            x: LaunchPatternView.size / 2,
+            y: LaunchPatternView.size / 2,
+            width: LaunchPatternView.size,
+            height: LaunchPatternView.size
+        ))
         redStrokeColour.setStroke()
         circlePath2.stroke()
         
-        let circlePath3 = UIBezierPath(ovalInRect: CGRectMake( -35, 35, patternSize, patternSize))
+        let circlePath3 = UIBezierPath(ovalIn: CGRect(
+            x: -LaunchPatternView.size / 2,
+            y: LaunchPatternView.size / 2,
+            width: LaunchPatternView.size,
+            height: LaunchPatternView.size
+        ))
         redStrokeColour.setStroke()
         circlePath3.stroke()
         
-        let circlePath4 = UIBezierPath(ovalInRect: CGRectMake( 35, -35, patternSize, patternSize))
+        let circlePath4 = UIBezierPath(ovalIn: CGRect(
+            x: LaunchPatternView.size / 2,
+            y: -LaunchPatternView.size / 2,
+            width: LaunchPatternView.size,
+            height: LaunchPatternView.size
+        ))
         redStrokeColour.setStroke()
         circlePath4.stroke()
         
-        let circlePath5 = UIBezierPath(ovalInRect: CGRectMake( -35, -35, patternSize, patternSize))
+        let circlePath5 = UIBezierPath(ovalIn: CGRect(
+            x: -LaunchPatternView.size / 2,
+            y: -LaunchPatternView.size / 2,
+            width: LaunchPatternView.size,
+            height: LaunchPatternView.size
+        ))
         redStrokeColour.setStroke()
         circlePath5.stroke()
         
         let image = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
         
-        UIColor(patternImage: image).setFill()
-        CGContextFillRect(context, rect)
+        UIColor(patternImage: image!).setFill()
+        context.fill(rect)
     }
-    
-    
 }

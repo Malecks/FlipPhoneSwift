@@ -10,61 +10,74 @@ import UIKit
 
 @IBDesignable
 
-class PatternView: UIView {
-    let patternSize: CGFloat = 70
-    
-    // Only override drawRect: if you perform custom drawing.
-    // An empty implementation adversely affects performance during animation.
-    override func drawRect(rect: CGRect) {
-        let context: CGContextRef = UIGraphicsGetCurrentContext()!
+final class PatternView: UIView {
+    static let size: CGFloat = 70
+
+    override func draw(_ rect: CGRect) {
+        let context: CGContext = UIGraphicsGetCurrentContext()!
         let backgroundBlue: UIColor = UIColor(red: 22/255.0, green: 115/255.0, blue: 225/255.0, alpha: 1)
         let blueStrokeColour: UIColor = UIColor(red: 15/255.0, green: 100/255.0, blue: 245/255.0, alpha: 1)
         
-        CGContextSetFillColorWithColor(context, backgroundBlue.CGColor)
-        CGContextFillRect(context, bounds)
+        context.setFillColor(backgroundBlue.cgColor)
+        context.fill(bounds)
         
-        ///////
-        let drawSize = CGSize(width: patternSize, height: patternSize)
+        let drawSize = CGSize(width: PatternView.size, height: PatternView.size)
         
         UIGraphicsBeginImageContextWithOptions(drawSize, true, 0.0)
         let drawingContext = UIGraphicsGetCurrentContext()
         
         backgroundBlue.setFill()
-        CGContextFillRect(drawingContext,
-            CGRectMake(0, 0, drawSize.width, drawSize.height))
+        drawingContext?.fill(CGRect(x: 0, y: 0, width: drawSize.width, height: drawSize.height))
         
-        // circle
-        let circlePath = UIBezierPath(ovalInRect: CGRectMake( 0, 0, patternSize, patternSize))
+        let circlePath = UIBezierPath(ovalIn: CGRect(
+            x: 0,
+            y: 0,
+            width: PatternView.size,
+            height: PatternView.size
+        ))
         blueStrokeColour.setStroke()
         circlePath.stroke()
         
-        let circlePath2 = UIBezierPath(ovalInRect: CGRectMake( patternSize/2, patternSize/2, patternSize, patternSize))
+        let circlePath2 = UIBezierPath(ovalIn: CGRect(
+            x: PatternView.size/2,
+            y: PatternView.size/2,
+            width: PatternView.size,
+            height: PatternView.size
+        ))
         blueStrokeColour.setStroke()
         circlePath2.stroke()
         
-        let circlePath3 = UIBezierPath(ovalInRect: CGRectMake( -patternSize/2, patternSize/2, patternSize, patternSize))
+        let circlePath3 = UIBezierPath(ovalIn: CGRect(
+            x: -PatternView.size/2,
+            y: PatternView.size/2,
+            width: PatternView.size,
+            height: PatternView.size
+        ))
         blueStrokeColour.setStroke()
         circlePath3.stroke()
         
-        let circlePath4 = UIBezierPath(ovalInRect: CGRectMake( patternSize/2, -patternSize/2, patternSize, patternSize))
+        let circlePath4 = UIBezierPath(ovalIn: CGRect(
+            x: PatternView.size/2,
+            y: -PatternView.size/2,
+            width: PatternView.size,
+            height: PatternView.size
+        ))
         blueStrokeColour.setStroke()
         circlePath4.stroke()
         
-        let circlePath5 = UIBezierPath(ovalInRect: CGRectMake( -patternSize/2, -patternSize/2, patternSize, patternSize))
+        let circlePath5 = UIBezierPath(ovalIn: CGRect(
+            x: -PatternView.size/2,
+            y: -PatternView.size/2,
+            width: PatternView.size,
+            height: PatternView.size
+        ))
         blueStrokeColour.setStroke()
         circlePath5.stroke()
         
         let image = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
         
-        UIColor(patternImage: image).setFill()
-        CGContextFillRect(context, rect)
-
-//        let gradient:CAGradientLayer = CAGradientLayer()
-//        gradient.frame.size = self.frame.size
-//        gradient.colors = [backgroundBlue.CGColor, UIColor.whiteColor().colorWithAlphaComponent(0).CGColor] //Or any colors
-//        self.layer.addSublayer(gradient)
+        UIColor(patternImage: image!).setFill()
+        context.fill(rect)
     }
-
-
 }
